@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="LordMarshal Audio Vault. Premium sounds, drum kits, 808s, MIDI and producer tools.">
+  <title>LordMarshal Audio Vault | Producer Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {theme:{extend:{colors:{lm:{bg:'#08090d',panel:'#11151e',line:'#252c38',gold:'#d7ad55',muted:'#9aa3b2'}},fontFamily:{display:['Space Grotesk','sans-serif'],sans:['Inter','sans-serif']}}}};
+  </script>
+  <style>
+    body{background:#08090d;color:#f8fafc;font-family:Inter,sans-serif}
+    .glass{background:rgba(17,21,30,.88);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(14px)}
+    .gold-glow{box-shadow:0 0 28px rgba(215,173,85,.12)}
+    .gold-btn{background:#d7ad55;color:#101116;font-weight:800;transition:.2s}
+    .gold-btn:hover{background:#edc875;transform:translateY(-2px)}
+    .outline-gold{border:1px solid rgba(215,173,85,.55)}
+    .wave span{display:block;width:4px;border-radius:5px;background:#d7ad55;animation:pulse 1s ease-in-out infinite alternate}
+    .wave.paused span{animation-play-state:paused;opacity:.45}
+    @keyframes pulse{from{height:7px}to{height:34px}}
+    input:focus{outline:1px solid #d7ad55}
+  </style>
+</head>
+<body class="antialiased">
+  <div class="border-b border-white/10 bg-black px-4 py-2 text-center text-xs text-lm-gold tracking-wide">LORDMARSHAL AUDIO VAULT · INDEPENDENT SOUND. UNCOMPROMISING QUALITY.</div>
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-lm-bg/90 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <a href="#" class="flex items-center gap-3">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-lm-gold text-black text-xl font-black">LM</div>
+        <div><div class="font-display text-lg font-bold tracking-tight">LORDMARSHAL <span class="text-lm-gold">AUDIO VAULT</span></div><div class="text-[10px] tracking-[.25em] text-lm-muted">PRODUCER COLLECTION</div></div>
+      </a>
+      <nav class="hidden items-center gap-7 text-sm text-lm-muted md:flex">
+        <a class="hover:text-lm-gold" href="#previews">Previews</a><a class="hover:text-lm-gold" href="#products">Sound packs</a><a class="hover:text-lm-gold" href="#about">About</a><a class="hover:text-lm-gold" href="#faq">FAQ</a>
+      </nav>
+      <a href="#products" class="gold-btn rounded-lg px-4 py-2.5 text-sm">Explore packs</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden px-4 py-24 text-center sm:py-32">
+      <div class="pointer-events-none absolute left-1/2 top-10 h-80 w-80 -translate-x-1/2 rounded-full bg-lm-gold/10 blur-[110px]"></div>
+      <div class="relative mx-auto max-w-5xl">
+        <span class="outline-gold inline-flex rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-lm-gold">Built for producers who create their own lane</span>
+        <h1 class="mt-8 font-display text-5xl font-bold uppercase leading-[1.05] sm:text-7xl">Sculpt your sound.<br><span class="text-lm-gold">Own your frequency.</span></h1>
+        <p class="mx-auto mt-7 max-w-2xl text-base leading-8 text-lm-muted sm:text-lg">808s with weight. Drums with character. MIDI ideas that move the session forward. Explore the LordMarshal producer collection.</p>
+        <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><a href="#products" class="gold-btn rounded-xl px-7 py-4">Explore the vault</a><a href="#previews" class="outline-gold rounded-xl px-7 py-4 font-bold text-white hover:bg-white/5">Listen to previews</a></div>
+        <div class="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4">
+          <div><div class="font-display text-2xl font-bold">WAV</div><div class="mt-1 text-xs uppercase tracking-wider text-lm-muted">Audio formats</div></div>
+          <div><div class="font-display text-2xl font-bold">MIDI</div><div class="mt-1 text-xs uppercase tracking-wider text-lm-muted">Creative tools</div></div>
+          <div><div class="font-display text-2xl font-bold">DAW</div><div class="mt-1 text-xs uppercase tracking-wider text-lm-muted">Ready to use</div></div>
+          <div><div class="font-display text-2xl font-bold text-lm-gold">LM</div><div class="mt-1 text-xs uppercase tracking-wider text-lm-muted">Independent sound</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="previews" class="border-y border-white/10 bg-white/[.02] px-4 py-16">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-8"><p class="text-xs font-bold uppercase tracking-[.2em] text-lm-gold">Hear before you buy</p><h2 class="mt-2 font-display text-3xl font-bold">Sound preview room</h2><p class="mt-2 text-sm text-lm-muted">Demo player is ready. Add your own MP3 previews to the assets/audio folder and update the track paths in this page.</p></div>
+        <div class="glass gold-glow rounded-2xl p-5 sm:p-7">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div><div id="track-title" class="font-display text-xl font-bold">LordMarshal Preview 01</div><div id="track-note" class="mt-1 text-sm text-lm-gold">Add a preview audio file to activate playback</div></div>
+            <div class="flex items-center gap-4"><div id="wave" class="wave paused flex h-10 items-center gap-1"></div><button id="play" class="grid h-14 w-14 place-items-center rounded-full bg-lm-gold text-xl text-black" aria-label="Play preview">▶</button></div>
+          </div>
+          <audio id="audio" preload="none"></audio>
+          <div id="playlist" class="mt-6 space-y-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="px-4 py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto mb-12 max-w-2xl text-center"><p class="text-xs font-bold uppercase tracking-[.2em] text-lm-gold">The collection</p><h2 class="mt-3 font-display text-4xl font-bold uppercase">Choose your sound vault</h2><p class="mt-3 text-lm-muted">Start with the essentials or unlock the complete producer collection.</p></div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="glass flex flex-col rounded-2xl p-7"><span class="text-xs font-bold uppercase tracking-widest text-lm-gold">Start here</span><h3 class="mt-4 font-display text-2xl font-bold">Starter Ignition</h3><p class="mt-2 min-h-12 text-sm text-lm-muted">A compact introduction to the LordMarshal sound.</p><div class="my-6 border-y border-white/10 py-5"><span class="font-display text-5xl font-bold">Free</span></div><ul class="mb-8 flex-1 space-y-3 text-sm text-slate-300"><li>✓ Starter drum one-shots</li><li>✓ Selected 808 samples</li><li>✓ Producer workflow notes</li></ul><button onclick="requestPack('starter')" class="gold-btn rounded-xl py-4">Get the free pack</button></article>
+          <article class="glass flex flex-col rounded-2xl border-lm-gold/40 p-7"><span class="text-xs font-bold uppercase tracking-widest text-purple-300">For active beatmakers</span><h3 class="mt-4 font-display text-2xl font-bold">Pro Producer Vault</h3><p class="mt-2 min-h-12 text-sm text-lm-muted">A deeper toolkit for building distinctive records.</p><div class="my-6 border-y border-white/10 py-5"><span class="font-display text-5xl font-bold">$19</span><span class="ml-2 text-xs text-lm-muted">one-time</span></div><ul class="mb-8 flex-1 space-y-3 text-sm text-slate-300"><li>✓ 808s and bass collection</li><li>✓ Drum shots and percussion</li><li>✓ MIDI progressions</li><li>✓ Construction stems</li></ul><button onclick="requestPack('pro')" class="rounded-xl bg-purple-600 py-4 font-extrabold hover:bg-purple-500">Pro pack · $19</button></article>
+          <article class="glass gold-glow flex flex-col rounded-2xl border-lm-gold p-7"><span class="text-xs font-bold uppercase tracking-widest text-lm-gold">All access</span><h3 class="mt-4 font-display text-2xl font-bold">Ultimate Collection</h3><p class="mt-2 min-h-12 text-sm text-lm-muted">The complete producer bundle and project resources.</p><div class="my-6 border-y border-white/10 py-5"><span class="font-display text-5xl font-bold">$49</span><span class="ml-2 text-xs text-lm-muted">one-time</span></div><ul class="mb-8 flex-1 space-y-3 text-sm text-slate-300"><li>✓ Everything in Pro</li><li>✓ Instrumental demos and stems</li><li>✓ FL Studio project template</li><li>✓ Producer document templates</li></ul><button onclick="requestPack('ultimate')" class="gold-btn rounded-xl py-4">Get ultimate collection</button></article>
+        </div>
+        <p class="mx-auto mt-7 max-w-3xl text-center text-xs leading-6 text-lm-muted">Prices and product contents are placeholders until your actual files, licensing terms, and payment currency are confirmed. No payment is collected by this starter version.</p>
+      </div>
+    </section>
+
+    <section id="about" class="border-y border-white/10 bg-white/[.02] px-4 py-16"><div class="mx-auto max-w-4xl text-center"><p class="text-xs font-bold uppercase tracking-[.2em] text-lm-gold">The philosophy</p><h2 class="mt-3 font-display text-3xl font-bold">Sound with identity.</h2><p class="mt-4 leading-8 text-lm-muted">LordMarshal Audio Vault is a home for original sounds, practical production resources, and tools built to help independent creators move from idea to finished record.</p></div></section>
+
+    <section id="faq" class="px-4 py-16"><div class="mx-auto max-w-3xl"><h2 class="mb-7 text-center font-display text-3xl font-bold">Frequently asked questions</h2><details class="glass mb-3 rounded-xl p-5"><summary class="cursor-pointer font-bold">What formats will the packs use?</summary><p class="mt-3 text-sm leading-6 text-lm-muted">The intended formats include WAV audio, MIDI files, and selected DAW project files. Exact contents will be listed on each product before launch.</p></details><details class="glass mb-3 rounded-xl p-5"><summary class="cursor-pointer font-bold">Can I use the sounds commercially?</summary><p class="mt-3 text-sm leading-6 text-lm-muted">Commercial permissions depend on the final license for each pack. Read the product license before using sounds in a commercial release.</p></details><details class="glass rounded-xl p-5"><summary class="cursor-pointer font-bold">How will downloads be delivered?</summary><p class="mt-3 text-sm leading-6 text-lm-muted">Automatic secure delivery will be enabled after the payment and storage backend is configured. This starter site does not yet process orders or send files.</p></details></div></section>
+  </main>
+  <footer class="border-t border-white/10 bg-black px-4 py-10"><div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left"><div><div class="font-display font-bold">LORDMARSHAL <span class="text-lm-gold">AUDIO VAULT</span></div><p class="mt-1 text-xs text-lm-muted">Independent sound. Uncompromising quality.</p></div><p class="text-xs text-lm-muted">© <span id="year"></span> LordMarshal. All rights reserved.</p></div></footer>
+
+  <div id="notice" class="fixed inset-x-4 bottom-4 z-50 mx-auto hidden max-w-md rounded-xl border border-lm-gold/40 bg-[#171923] p-4 text-sm shadow-2xl"><div class="flex items-start justify-between gap-4"><p id="notice-text"></p><button onclick="hideNotice()" class="text-lm-gold" aria-label="Close">✕</button></div></div>
+  <script>
+    const demos = [
+      {title:'Preview 01 · 808 & Bass',file:'assets/audio/preview-01.mp3'},
+      {title:'Preview 02 · Afro-Trap Drums',file:'assets/audio/preview-02.mp3'},
+      {title:'Preview 03 · Melody & MIDI',file:'assets/audio/preview-03.mp3'}
+    ];
+    const audio=document.getElementById('audio'), wave=document.getElementById('wave'), play=document.getElementById('play');
+    let active=0;
+    for(let i=0;i<24;i++){const s=document.createElement('span');s.style.animationDelay=(i%8)*.1+'s';wave.appendChild(s)}
+    const playlist=document.getElementById('playlist');
+    demos.forEach((d,i)=>{const b=document.createElement('button');b.className='flex w-full items-center justify-between rounded-lg border border-white/5 bg-black/20 px-4 py-3 text-left text-sm hover:border-lm-gold/40';b.innerHTML=`<span>${d.title}</span><span class="text-xs text-lm-muted">PLAY</span>`;b.onclick=()=>loadDemo(i,true);playlist.appendChild(b)});
+    function loadDemo(i,autoplay){active=i;document.getElementById('track-title').textContent=demos[i].title;audio.src=demos[i].file;document.getElementById('track-note').textContent='Preview file: '+demos[i].file;if(autoplay)audio.play().then(()=>{play.textContent='Ⅱ';wave.classList.remove('paused')}).catch(()=>showNotice('Preview file not found yet. Add your MP3 to '+demos[i].file));}
+    play.onclick=()=>{if(!audio.src)loadDemo(0,false);if(audio.paused){audio.play().then(()=>{play.textContent='Ⅱ';wave.classList.remove('paused')}).catch(()=>showNotice('Add your MP3 preview files to the assets/audio folder first.'))}else audio.pause()};
+    audio.onpause=()=>{play.textContent='▶';wave.classList.add('paused')};audio.onended=()=>{play.textContent='▶';wave.classList.add('paused')};
+    function requestPack(type){const names={starter:'Free Starter Ignition pack',pro:'Pro Producer Vault ($19)',ultimate:'Ultimate Collection ($49)'};showNotice(names[type]+' selected. Checkout is not connected yet. We will connect Paystack after confirming your products and account details.');}
+    function showNotice(t){document.getElementById('notice-text').textContent=t;document.getElementById('notice').classList.remove('hidden')}
+    function hideNotice(){document.getElementById('notice').classList.add('hidden')}
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
