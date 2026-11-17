@@ -3,182 +3,539 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fbfaf7">
-<meta name="description" content="LordMarshal Audio Vault — original beats, instrumentals and production sounds.">
-<title>LordMarshal Audio Vault</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f6">
+<meta name="description" content="485 MUSIC — An independent marketplace for beats, instrumentals, sample packs and sounds.">
+<title>485 MUSIC — Sound With Identity</title>
+
 <style>
-:root{--bg:#fbfaf7;--white:#fff;--gold:#b58a3a;--ink:#252525;--muted:#73716c;--line:#e9e5dc;--soft:#f3f0e9}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
-.topline{padding:10px;text-align:center;background:#292722;color:#ead8b2;font-size:10px;letter-spacing:2px}
-header{position:sticky;top:0;background:#fbfaf7ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:10}
-.nav{height:75px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:12px}
-.mark{width:42px;height:42px;display:grid;place-items:center;background:var(--gold);color:white;border-radius:10px;font-weight:800}
-.brandname{font:800 14px Manrope}
-.brandname span{color:var(--gold)}
-.subbrand{font-size:9px;color:var(--muted);letter-spacing:2px;margin-top:3px}
-nav{display:flex;gap:25px;font-size:13px;color:var(--muted)}
-.btn{display:inline-block;padding:14px 21px;background:var(--gold);color:white;border-radius:8px;font-weight:700;font-size:13px}
-.btn.secondary{background:transparent;border:1px solid #d8c49f;color:var(--ink)}
-.hero{text-align:center;padding:110px 0 85px;background:radial-gradient(ellipse at top,#efe5d2,transparent 60%)}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
-h1,h2,h3{font-family:Manrope}
-h1{font-size:clamp(42px,7vw,76px);line-height:1.05;letter-spacing:-3px;margin:24px auto}
-h1 span{color:var(--gold)}
-.hero p{max-width:620px;margin:auto;color:var(--muted);line-height:1.8}
-.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}
-.proof{display:flex;justify-content:center;flex-wrap:wrap;margin:60px auto 0;padding-top:25px;border-top:1px solid #ded5c4;max-width:760px}
-.proof div{min-width:150px;padding:10px 20px}
-.proof strong{display:block;font:800 18px Manrope}
-.proof small{display:block;margin-top:5px;color:var(--muted);font-size:10px;letter-spacing:1px}
-section{padding:75px 0}
-.sectionhead{text-align:center;max-width:650px;margin:0 auto 38px}
-.sectionhead h2{font-size:clamp(28px,4vw,42px);margin:12px 0;letter-spacing:-2px}
-.sectionhead p{font-size:14px;color:var(--muted);line-height:1.8}
-.store-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:45px;border:1px solid var(--line);border-radius:18px;background:white}
-.store-panel h3{font-size:35px;letter-spacing:-2px;margin:12px 0}
-.store-panel p{color:var(--muted);font-size:14px;line-height:1.8}
-.store-card{padding:30px;border-radius:14px;background:var(--soft);text-align:center}
-.bigmark{width:65px;height:65px;margin:auto;display:grid;place-items:center;background:var(--gold);color:white;border-radius:16px;font-size:24px;font-weight:800}
-.store-card p{font-size:12px}
-.store-card a:not(.btn){color:var(--gold);font-weight:700;font-size:13px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.feature{padding:24px;border:1px solid var(--line);border-radius:12px;background:white}
-.feature b{font:700 15px Manrope}
-.feature p{font-size:12px;line-height:1.7;color:var(--muted)}
-.about{text-align:center;background:#f1eee7;border-block:1px solid var(--line)}
-.about p{max-width:700px;margin:auto;color:var(--muted);line-height:1.9;font-size:14px}
-.faq{max-width:760px;margin:auto}
-details{padding:20px 0;border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font-weight:700;font-size:14px}
-details p{color:var(--muted);font-size:13px;line-height:1.8}
-footer{padding:30px 0;background:#292722;color:white}
-.foot{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.foot p{font-size:11px;color:#c6c0b5}
-@media(max-width:760px){
-nav{display:none}
-.nav{height:68px}
-.brandname{font-size:11px}
-.hero{padding:80px 0 60px}
-.proof div{min-width:50%}
-.store-panel{grid-template-columns:1fr;padding:25px}
-.features{grid-template-columns:1fr}
-.foot{flex-direction:column;text-align:center}
-section{padding:60px 0}
+:root {
+  --white: #fffefa;
+  --pearl: #f7f5ef;
+  --gold: #c19a51;
+  --gold-light: #e8d5a8;
+  --dark: #24231f;
+  --grey: #77756e;
+  --line: #e9e5db;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--dark);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button { font: inherit; cursor: pointer; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,254,250,.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 17px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 25px;
+}
+
+.hero {
+  min-height: 540px;
+  padding: 100px 7%;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 80% 25%, #eee1c4 0, transparent 35%),
+    linear-gradient(120deg, #fffefa, #f4f0e6);
+}
+
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+.eyebrow {
+  color: #a37d37;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 720px;
+  margin: 20px 0;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  max-width: 500px;
+  color: var(--grey);
+  font-size: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 23px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--dark);
+}
+
+.btn:hover { opacity: .8; }
+
+section {
+  padding: 85px 7%;
+  scroll-margin-top: 75px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-heading {
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 8px 0;
+}
+
+.section-heading p {
+  color: var(--grey);
+  max-width: 550px;
+}
+
+.departments {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.department {
+  min-height: 260px;
+  padding: 35px;
+  background: var(--pearl);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.department:nth-child(2) {
+  background: #f2eadb;
+}
+
+.department .number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.department h3 {
+  font-size: 27px;
+  margin: 12px 0;
+}
+
+.department p {
+  max-width: 380px;
+  color: var(--grey);
+  font-size: 14px;
+}
+
+.text-link {
+  margin-top: 22px;
+  display: inline-block;
+  color: #9b752f;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.discover {
+  background: var(--pearl);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.filter {
+  padding: 10px 17px;
+  border: 1px solid var(--line);
+  background: white;
+  font-size: 12px;
+}
+
+.filter.active {
+  background: var(--dark);
+  color: white;
+}
+
+.catalogue {
+  min-height: 190px;
+  border: 1px dashed #d6c9ad;
+  background: white;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.catalogue h3 { margin-bottom: 8px; }
+
+.catalogue p {
+  max-width: 470px;
+  color: var(--grey);
+  font-size: 14px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.tool {
+  padding: 25px;
+  border: 1px solid var(--line);
+}
+
+.tool h3 { margin-bottom: 9px; }
+
+.tool p {
+  color: var(--grey);
+  font-size: 13px;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 16px;
+  color: #9b752f;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.about {
+  background: #26241f;
+  color: white;
+}
+
+.about p {
+  color: #c7c2b7;
+  max-width: 650px;
+}
+
+footer {
+  padding: 35px 7%;
+  background: #1c1b18;
+  color: #c7c2b7;
+  font-size: 12px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+@media(max-width: 760px) {
+  .menu-btn { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 22px 7%;
+    background: white;
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .hero {
+    min-height: 490px;
+    padding: 75px 7%;
+  }
+
+  .hero h1 { letter-spacing: -2px; }
+
+  section { padding: 65px 7%; }
+
+  .departments,
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department { min-height: 225px; }
 }
 </style>
 </head>
+
 <body>
-<div class="topline">LORDMARSHAL AUDIO VAULT · INDEPENDENT SOUND</div>
+
 <header>
-<div class="wrap nav">
-<a class="brand" href="#">
-<div class="mark">LM</div>
-<div>
-<div class="brandname">LORDMARSHAL <span>AUDIO VAULT</span></div>
-<div class="subbrand">OFFICIAL PRODUCER STORE</div>
-</div>
-</a>
-<nav>
-<a href="#store">Store</a>
-<a href="#collection">Collection</a>
-<a href="#about">About</a>
-<a href="#faq">FAQ</a>
-</nav>
-<a class="btn" href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener">BeatStars ↗</a>
-</div>
+  <nav class="nav">
+    <a class="logo" href="#home">485 <span>MUSIC</span></a>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#artist-store">Artist Store</a>
+      <a href="#producer-vault">Producer Vault</a>
+      <a href="#discover">Discover</a>
+      <a href="#library">My Library</a>
+    </div>
+  </nav>
 </header>
+
 <main>
-<section class="hero">
-<div class="wrap">
-<div class="eyebrow">The official LordMarshal sound collection</div>
-<h1>Sculpt your sound.<br><span>Own your frequency.</span></h1>
-<p>Original beats, instrumentals and production sounds for creators building something with identity. Explore the catalogue and license your next sound on BeatStars.</p>
-<div class="actions">
-<a class="btn" href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener">Explore BeatStars ↗</a>
-<a class="btn secondary" href="#collection">Discover the collection</a>
-</div>
-<div class="proof">
-<div><strong>ORIGINAL</strong><small>Distinct sound</small></div>
-<div><strong>BEATSTARS</strong><small>Listen & license</small></div>
-<div><strong>LORDMARSHAL</strong><small>Producer identity</small></div>
-</div>
-</div>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">Independent Music Marketplace</div>
+
+    <h1>Find your sound.<br><span>Make it yours.</span></h1>
+
+    <p>
+      A home for original beats, instrumentals, production tools
+      and sounds created for artists and producers.
+    </p>
+
+    <div class="actions">
+      <a href="#artist-store" class="btn">EXPLORE THE STORE</a>
+      <a href="#producer-vault" class="btn btn-outline">PRODUCER VAULT</a>
+    </div>
+  </div>
 </section>
-<section id="store">
-<div class="wrap">
-<div class="sectionhead">
-<div class="eyebrow">Official storefront</div>
-<h2>Find your next sound.</h2>
-<p>BeatStars remains the catalogue and checkout platform. Browse available beats, listen to previews, review licensing options and complete purchases through the store.</p>
-</div>
-<div class="store-panel">
-<div>
-<div class="eyebrow">Shop on BeatStars</div>
-<h3>Browse. Listen.<br>Make it yours.</h3>
-<p>We're keeping sales on BeatStars while this website serves as your home base. No extra subscription or duplicate checkout system needed.</p>
-<a class="btn" href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener">Open BeatStars Store ↗</a>
-</div>
-<div class="store-card">
-<div class="bigmark">LM</div>
-<div class="eyebrow" style="margin-top:18px">LordMarshal</div>
-<h3>Official BeatStars Store</h3>
-<p>Hear the catalogue, choose a license and purchase directly through BeatStars.</p>
-<a href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener">beatstars.com/LordMarshal ↗</a>
-</div>
-</div>
-</div>
+
+<section id="artist-store">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">01 — The Marketplace</div>
+      <h2>Explore our departments.</h2>
+      <p>Everything starts with a sound. Find the tools to build yours.</p>
+    </div>
+
+    <div class="departments">
+      <article class="department">
+        <div>
+          <div class="number">01 / ARTISTS</div>
+          <h3>Artist Store</h3>
+          <p>
+            Original beats, instrumentals, licensing options
+            and custom music production.
+          </p>
+        </div>
+        <a href="#discover" class="text-link">EXPLORE ARTIST STORE →</a>
+      </article>
+
+      <article class="department" id="producer-vault">
+        <div>
+          <div class="number">02 / PRODUCERS</div>
+          <h3>Producer Vault</h3>
+          <p>
+            Sample packs, drum kits, loops, MIDI files
+            and production sound libraries.
+          </p>
+        </div>
+        <a href="#discover" class="text-link">EXPLORE PRODUCER VAULT →</a>
+      </article>
+    </div>
+  </div>
 </section>
-<section id="collection" style="padding-top:0">
-<div class="wrap">
-<div class="sectionhead">
-<div class="eyebrow">Inside the vault</div>
-<h2>Made for the work.</h2>
-<p>A focused collection for artists and producers who care about the details behind a finished record.</p>
-</div>
-<div class="features">
-<div class="feature"><b>Beats & instrumentals</b><p>Explore available productions and preview tracks in the BeatStars catalogue.</p></div>
-<div class="feature"><b>Producer sounds</b><p>Production tools and sound collections as they become available in the store.</p></div>
-<div class="feature"><b>Clear licensing</b><p>Review license options and terms on each BeatStars listing before purchasing.</p></div>
-</div>
-</div>
+
+<section class="discover" id="discover">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">03 — Discover</div>
+      <h2>Find your next sound.</h2>
+      <p>
+        Browse the 485 MUSIC catalogue. New releases and products
+        will appear here as they are added.
+      </p>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-category="all">All</button>
+      <button class="filter" data-category="beats">Beats</button>
+      <button class="filter" data-category="samples">Sample Packs</button>
+      <button class="filter" data-category="loops">Loops</button>
+      <button class="filter" data-category="kits">Drum Kits</button>
+    </div>
+
+    <div class="catalogue" id="catalogue">
+      <div>
+        <h3>Catalogue coming soon</h3>
+        <p>
+          Our independent product catalogue is being prepared.
+          No placeholder products or invented prices.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
-<section id="about" class="about">
-<div class="wrap">
-<div class="eyebrow">The philosophy</div>
-<h2>Sound with identity.</h2>
-<p>LordMarshal Audio Vault is the online home for original production, beats and creative tools from LordMarshal. Built for independent creators who want their sound to carry its own signature.</p>
-</div>
+
+<section id="library">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">04 — Customer Tools</div>
+      <h2>Your music. Your library.</h2>
+      <p>
+        Your purchases and licences will live in one secure place.
+      </p>
+    </div>
+
+    <div class="tools-grid">
+      <article class="tool">
+        <h3>My Library</h3>
+        <p>Access your purchased music and downloads.</p>
+        <span class="status">IN DEVELOPMENT</span>
+      </article>
+
+      <article class="tool">
+        <h3>Cart & Checkout</h3>
+        <p>Purchase products through secure payment processing.</p>
+        <span class="status">IN DEVELOPMENT</span>
+      </article>
+
+      <article class="tool">
+        <h3>Licences & Orders</h3>
+        <p>Keep track of orders and music licensing details.</p>
+        <span class="status">IN DEVELOPMENT</span>
+      </article>
+    </div>
+  </div>
 </section>
-<section id="faq">
-<div class="wrap">
-<div class="sectionhead">
-<div class="eyebrow">A few details</div>
-<h2>Frequently asked questions</h2>
-</div>
-<div class="faq">
-<details><summary>Where do I listen to beats?</summary><p>Open the official BeatStars store to browse the available catalogue and play track previews.</p></details>
-<details><summary>Where do I buy or license a beat?</summary><p>Purchases and licensing are handled on BeatStars. Each listing shows the available license options and terms.</p></details>
-<details><summary>Do I need a paid BeatStars plan?</summary><p>No. This website links to your existing public BeatStars store. It does not rely on Blaze Player or a paid embed feature.</p></details>
-</div>
-</div>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="eyebrow">The 485 MUSIC Standard</div>
+    <h2 style="font-size:38px;margin:15px 0;">
+      Sound with identity.
+    </h2>
+    <p>
+      485 MUSIC is an independent music marketplace built
+      to connect artists, producers and original sounds.
+      A platform for creativity, ownership and opportunity.
+    </p>
+  </div>
 </section>
+
 </main>
+
 <footer>
-<div class="wrap foot">
-<div>
-<div class="brandname">LORDMARSHAL <span style="color:#d5b574">AUDIO VAULT</span></div>
-<p>Independent sound. Uncompromising quality.</p>
-</div>
-<p>© <span id="year"></span> LordMarshal. All rights reserved.</p>
-</div>
+  <div class="footer-inner">
+    <div><strong>485 MUSIC</strong> — Sound with identity.</div>
+    <div>© <span id="year"></span> 485 MUSIC. All rights reserved.</div>
+  </div>
 </footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", isOpen);
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(item => {
+      item.classList.remove("active");
+    });
+    button.classList.add("active");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
 </body>
 </html>
