@@ -1,83 +1,931 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#fafaf7">
-<meta name="description" content="485 MUSIC — premium beats, sample packs and production tools by LordMarshal.">
-<title>485 MUSIC | Beats & Sound by LordMarshal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf9f5">
+<meta name="description" content="485 MUSIC — Premium beats, instrumentals, sample packs and production tools.">
+<title>485 MUSIC | Sound. Identity. Culture.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#090a0d;--panel:#141820;--line:#2b303a;--gold:#d7b56d;--gold2:#f1d99b;--purple:#a879ff;--muted:#a1a7b2;--white:#f6f5f1}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:"DM Sans",sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1100px,calc(100% - 36px));margin:auto}
-.announce{padding:9px;text-align:center;background:linear-gradient(90deg,#8d6b32,#e3c77f,#7654a8);color:#090a0d;font-size:10px;font-weight:800;letter-spacing:1.5px}
-header{position:sticky;top:0;z-index:5;background:#090a0ded;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff14}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:11px}.mark{width:40px;height:40px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold2);font-size:22px;box-shadow:0 0 22px #d7b56d20}.brand b{font:700 15px "Space Grotesk";letter-spacing:1px}.brand b span{color:var(--gold2)}.tag{display:block;color:#8f949e;font-size:9px;letter-spacing:2px}
-nav{display:flex;gap:22px;font-size:12px;color:#c3c6cc}nav a:hover{color:var(--gold2)}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 17px;border:1px solid var(--gold);border-radius:9px;background:linear-gradient(135deg,#f0d99c,#c49a4e);color:#111;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;transition:.2s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px #d7b56d30}.btn.alt{background:#ffffff08;color:white;border-color:#ffffff30}.btn.purple{background:linear-gradient(135deg,#c5a4ff,#8155cf);border-color:var(--purple);color:#100d18}
-.hero{position:relative;text-align:center;padding:90px 0 65px;overflow:hidden}.hero:before,.hero:after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;filter:blur(100px);opacity:.15;pointer-events:none}.hero:before{background:var(--gold);top:-180px;left:-160px}.hero:after{background:#8054d9;right:-160px;top:50px}.hero>*{position:relative;z-index:1}.pill{display:inline-block;padding:8px 13px;border:1px solid #d7b56d55;border-radius:99px;color:var(--gold2);background:#d7b56d0d;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
-h1,h2,h3{font-family:"Space Grotesk",sans-serif}h1{font-size:clamp(42px,7vw,75px);line-height:1.02;letter-spacing:-3px;margin:25px 0 18px;text-transform:uppercase}h1 span{background:linear-gradient(100deg,#fff0bd,#c89b4f 55%,#a879ff);color:transparent;background-clip:text}.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:16px;line-height:1.8}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 45px}.stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:800px;margin:auto;border-top:1px solid #ffffff17;padding-top:24px}.stat strong{display:block;font:700 20px "Space Grotesk";color:var(--gold2)}.stat small{font-size:9px;color:#9298a2;letter-spacing:1px;text-transform:uppercase}
-section{padding:70px 0}.head{text-align:center;max-width:680px;margin:0 auto 35px}.kicker{font-size:10px;color:var(--gold2);font-weight:800;letter-spacing:2px;text-transform:uppercase}.head h2{font-size:clamp(28px,4vw,42px);margin:12px 0}.head p{color:var(--muted);font-size:13px;line-height:1.7}
-.preview{background:linear-gradient(#0d1016,#0a0c10);border-block:1px solid #ffffff10}.player{background:linear-gradient(135deg,#171b23,#0e1117);border:1px solid #d7b56d55;border-radius:17px;padding:22px}.player-top{display:flex;align-items:center;gap:14px}.play{width:52px;height:52px;border:0;border-radius:50%;background:var(--gold2);font-size:18px}.track-sub{color:var(--gold2);font-size:11px;margin-top:4px}.wave{height:40px;display:flex;align-items:center;gap:3px;margin:18px 0}.wave i{flex:1;height:var(--h);background:linear-gradient(var(--gold2),#9d783d);border-radius:4px}.status{font-size:11px;color:#9298a2}.tracks{display:grid;gap:8px;margin-top:15px}.track{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid #ffffff12;border-radius:9px;font-size:12px}.track button{background:#ffffff08;border:1px solid #ffffff30;color:var(--gold2);padding:7px 10px;border-radius:7px;font-size:11px}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.product{display:flex;flex-direction:column;background:linear-gradient(160deg,#171b23,#0f1218);border:1px solid var(--line);border-radius:15px;padding:23px}.product.featured{border-color:#d7b56d99;box-shadow:0 0 30px #d7b56d12}.label{align-self:flex-start;color:var(--gold2);background:#d7b56d16;border:1px solid #d7b56d40;border-radius:99px;padding:7px 9px;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.product h3{font-size:20px;margin:17px 0 8px}.product p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.price{font:700 35px "Space Grotesk";margin:18px 0}.price small{font:11px "DM Sans";color:#9298a2}.product ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px;flex:1;font-size:12px;color:#d4d7dc}.product li:before{content:"✦";color:var(--gold2);margin-right:8px}.product .btn{width:100%}
-.tools{background:#0d1016;border-block:1px solid #ffffff10}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{border:1px solid var(--line);border-radius:12px;padding:19px;background:#ffffff04}.feature strong{color:var(--gold2);font-size:20px}.feature h3{font-size:14px;margin:10px 0 6px}.feature p,.faq p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}.faq{max-width:740px;margin:auto}.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;padding:15px;background:#ffffff04}.faq summary{font-size:13px;font-weight:700;cursor:pointer}.faq p{margin-top:11px}
-.notice{display:none;margin-top:14px;padding:12px;border:1px solid #d7b56d55;background:#d7b56d0d;color:#e8d7ad;border-radius:9px;font-size:12px;line-height:1.6}
-footer{border-top:1px solid #ffffff15;padding:28px 0;color:#9298a2;font-size:11px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.foot b{font:700 14px "Space Grotesk";color:white}.foot b span{color:var(--gold2)}
-@media(max-width:800px){nav{display:none}.products{grid-template-columns:1fr}.hero{padding:70px 0 55px}.stats{grid-template-columns:1fr 1fr;gap:18px}.features{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.nav{height:65px}.brand b{font-size:12px}.btn{padding:11px 13px;font-size:10px}h1{letter-spacing:-1.5px}.hero p{font-size:14px}.features{grid-template-columns:1fr}.player{padding:15px}.track{font-size:11px}}
+:root {
+  --background: #faf9f5;
+  --white: #ffffff;
+  --gold: #c6a15b;
+  --gold-light: #e4cd91;
+  --text: #25231e;
+  --muted: #77736b;
+  --border: #e8e1d3;
+  --dark: #29261f;
+}
 
-/* 485 MUSIC: pearl white + champagne gold luxury system */
-:root{--bg:#fafaf7;--panel:#ffffff;--line:#e7e1d4;--gold:#c6a15b;--gold2:#d4af37;--purple:#c6a15b;--muted:#77736b;--white:#242321}
-body{background:var(--bg);color:var(--white)}
-.announce{background:linear-gradient(90deg,#f4eddd,#d4af37,#f4eddd);color:#29251c}
-header{background:rgba(250,250,247,.94);border-bottom:1px solid #e7e1d4}
-.brand b{color:#242321}.brand b span,.tag{color:#9b7832}.mark{background:#fff;border-color:#d4af37;color:#b18b3e;box-shadow:0 4px 18px #b18b3e18}
-nav{color:#555149}nav a:hover{color:#9b7832}
-.btn{background:linear-gradient(135deg,#e6cf91,#bd9747);color:#241f14;border-color:#c6a15b}.btn.alt{background:#fff;color:#37332a;border-color:#d9cfb9}.btn.purple{background:linear-gradient(135deg,#e6cf91,#bd9747);border-color:#c6a15b;color:#241f14}
-.hero{background:radial-gradient(ellipse at 50% 0%,#f1ead9 0%,#fafaf7 62%)}.hero:before{opacity:.12}.hero:after{background:#d4af37;opacity:.08}
-.pill{color:#8c6b2d;background:#f5efdf;border-color:#e4d5b4}
-h1 span{background:linear-gradient(100deg,#a47d32,#d4af37 55%,#8f6b2b);color:transparent;background-clip:text}
-.hero p,.head p{color:#77736b}.stats{border-color:#e6e0d4}.stat strong,.kicker{color:#a47d32}.stat small{color:#77736b}
-.preview,.tools{background:#f2f0ea;border-color:#e7e1d4}.player,.product{background:#fff;border-color:#e5ddcc;box-shadow:0 12px 35px #4c3b1710}.player{border-color:#d8c18c}.play{background:#d4af37;color:#201b12}.track{border-color:#e8e2d7;color:#34312b}.track button{background:#f8f5ed;border-color:#dfd2b4;color:#8a682a}.wave i{background:linear-gradient(#d4af37,#b58b3b)}.status,.price small{color:#77736b}
-.product.featured{border-color:#d4af37;box-shadow:0 12px 35px #b18b3e18}.label{color:#8c6b2d;background:#f7f1e3;border-color:#e5d5b1}.product p,.product ul{color:#6f6a61}.feature,.faq details{background:#fff;border-color:#e7e1d4}.feature strong{color:#a47d32}.feature p,.faq p{color:#77736b}.faq summary{color:#302d27}
-.notice{background:#f7f1e3;border-color:#e4d5b4;color:#6c5428}footer{border-color:#e7e1d4;color:#77736b}.foot b{color:#242321}.foot b span{color:#a47d32}
-.beats{background:#fff}.embed-note{max-width:760px;margin:24px auto 0;padding:22px;border:1px dashed #c6a15b;border-radius:14px;background:#faf8f2;text-align:center}.embed-note p{font-size:13px;line-height:1.7;color:#77736b;margin-bottom:0}
-@media(max-width:800px){nav{display:none}}
+* {
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
 
-.nav-tools{display:flex;gap:8px;align-items:center}.nav-tools .btn{padding:10px 13px;font-size:10px}.catalogue-tools{display:flex;gap:10px;max-width:760px;margin:0 auto 18px}.catalogue-tools input,.catalogue-tools select,.customer-modal input{width:100%;padding:13px 14px;border:1px solid #e2d8c4;border-radius:9px;background:#fff;color:#28251f;font:13px "DM Sans",sans-serif}.catalogue-tools select{max-width:220px}.catalogue-status{text-align:center;color:#77736b;font-size:12px;margin:16px 0 22px}.product-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:9px;background:#f4f0e7;margin-bottom:14px}.product .product-meta{font-size:10px;color:#987638;text-transform:uppercase;letter-spacing:1px;margin-top:12px}.product .add-cart{margin-top:14px;width:100%}.empty-catalogue{grid-column:1/-1;text-align:center;padding:32px 20px;border:1px dashed #d8c9a8;border-radius:12px;color:#77736b;font-size:13px;line-height:1.7}.modal-backdrop{position:fixed;inset:0;background:#17140f88;z-index:20;display:grid;place-items:center;padding:18px}.modal-backdrop[hidden]{display:none}.customer-modal{position:relative;width:min(480px,100%);max-height:90vh;overflow:auto;background:#fffdf8;border:1px solid #e1d3b4;border-radius:16px;padding:28px;box-shadow:0 20px 70px #17140f35}.customer-modal h2{font-size:26px;margin:10px 0}.modal-copy{font-size:12px;color:#77736b;line-height:1.7}.modal-close{position:absolute;right:15px;top:10px;border:0;background:transparent;font-size:28px;color:#6d6049}.customer-modal form{display:grid;gap:13px;margin-top:20px}.customer-modal label{display:grid;gap:7px;font-size:12px;font-weight:700;color:#4c463b}.customer-modal [hidden]{display:none!important}.modal-actions{display:flex;gap:9px;flex-wrap:wrap}.modal-message{font-size:12px;line-height:1.6;margin-top:14px;color:#806126}.cart-line{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid #eee7d9;font-size:12px}.cart-line button{border:0;background:transparent;color:#987638;text-decoration:underline;font-size:11px}.cart-total{font-weight:800;text-align:right;margin:18px 0}.cart-empty{padding:18px 0;color:#77736b;font-size:13px}.modal-backdrop section{padding:28px}
-@media(max-width:560px){.nav-tools .btn{padding:9px 10px;font-size:9px}.catalogue-tools{flex-direction:column}.catalogue-tools select{max-width:none}.customer-modal{padding:22px}.nav{gap:8px}}
-</style></head>
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(1150px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* ANNOUNCEMENT */
+
+.announcement {
+  background: var(--dark);
+  color: var(--gold-light);
+  padding: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(250,249,245,.96);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.brand strong {
+  display: block;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.brand small {
+  display: block;
+  color: #96763d;
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+nav a:hover {
+  color: #a47d37;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 9px;
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 17px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: linear-gradient(135deg,#ead9a9,#c19a4c);
+  color: #292316;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px #a17d3b25;
+}
+
+.btn.secondary {
+  background: white;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+/* HERO */
+
+.hero {
+  padding: 95px 0 75px;
+  text-align: center;
+  background: radial-gradient(ellipse at top,#f0e8d6,transparent 65%);
+}
+
+.hero-logo {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 9px 15px;
+  border: 1px solid #ddc99d;
+  border-radius: 50px;
+  background: #f8f3e7;
+  color: #8d6c31;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1,h2,h3 {
+  font-family: Manrope, sans-serif;
+}
+
+h1 {
+  font-size: clamp(42px,7vw,76px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+  margin: 25px 0 18px;
+}
+
+h1 span {
+  color: #b18a3e;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 50px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+  max-width: 850px;
+  margin: auto;
+  padding-top: 25px;
+  border-top: 1px solid var(--border);
+}
+
+.stats strong {
+  display: block;
+  color: #96712f;
+  font-family: Manrope, sans-serif;
+  font-size: 15px;
+}
+
+.stats small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 75px 0;
+}
+
+.section-heading {
+  max-width: 680px;
+  text-align: center;
+  margin: 0 auto 35px;
+}
+
+.kicker {
+  color: #a17b37;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px,4vw,43px);
+  margin: 12px 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* MARKETPLACE */
+
+.marketplace {
+  background: white;
+  border-block: 1px solid var(--border);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  max-width: 750px;
+  margin: auto auto 25px;
+}
+
+.filters input,
+.filters select {
+  width: 100%;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  font-size: 12px;
+}
+
+.filters select {
+  max-width: 220px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.product {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  box-shadow: 0 12px 35px #4c3b1710;
+}
+
+.product .category {
+  color: #9b783b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.product h3 {
+  margin: 12px 0 8px;
+  font-size: 19px;
+}
+
+.product p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.product .price {
+  margin: 18px 0;
+  font: 800 25px Manrope;
+}
+
+.product button {
+  width: 100%;
+}
+
+.catalogue-message {
+  grid-column: 1/-1;
+  padding: 40px 20px;
+  border: 1px dashed #d9c9a8;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-grid h2 {
+  font-size: 40px;
+}
+
+.about-grid p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.logo-panel {
+  display: grid;
+  place-items: center;
+  min-height: 300px;
+  background: linear-gradient(145deg,#fff,#f2ecdf);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.logo-panel img {
+  width: 220px;
+  max-width: 80%;
+}
+
+/* PRODUCERS */
+
+.producers {
+  background: var(--dark);
+  color: white;
+}
+
+.producers .section-heading h2 {
+  color: white;
+}
+
+.producers .section-heading p {
+  color: #c9c2b5;
+}
+
+.producer-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.producer-card {
+  padding: 23px;
+  border: 1px solid #ffffff25;
+  border-radius: 12px;
+  background: #ffffff08;
+}
+
+.producer-card strong {
+  color: var(--gold-light);
+}
+
+.producer-card p {
+  color: #c9c2b5;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* FAQ */
+
+.faq {
+  max-width: 750px;
+  margin: auto;
+}
+
+details {
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  margin: 10px 0;
+  background: white;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+details p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img {
+  width: 45px;
+}
+
+.footer-brand strong {
+  font-family: Manrope, sans-serif;
+}
+
+footer small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* CART */
+
+.cart-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #17140f88;
+  place-items: center;
+  padding: 20px;
+}
+
+.cart-panel.open {
+  display: grid;
+}
+
+.cart-box {
+  width: min(450px,100%);
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+}
+
+.cart-box h2 {
+  margin-top: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.cart-total {
+  text-align: right;
+  font-weight: 800;
+  padding: 18px 0;
+}
+
+.cart-note {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media(max-width:850px) {
+  nav {
+    display: none;
+  }
+
+  .products {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .about-grid {
+    gap: 25px;
+  }
+}
+
+@media(max-width:600px) {
+  .brand img {
+    width: 43px;
+    height: 43px;
+  }
+
+  .brand strong {
+    font-size: 13px;
+  }
+
+  .brand small {
+    font-size: 7px;
+  }
+
+  .nav {
+    min-height: 68px;
+  }
+
+  .nav-actions .btn {
+    padding: 10px;
+    font-size: 9px;
+  }
+
+  .hero {
+    padding: 65px 0 55px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+  }
+
+  .products,
+  .producer-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters select {
+    max-width: none;
+  }
+
+  section {
+    padding: 55px 0;
+  }
+}
+</style>
+</head>
+
 <body>
-<div class="announce">485 MUSIC · PREMIUM BEATS & SOUND BY LORDMARSHAL</div>
-<header><div class="wrap nav">
-<a class="brand" href="#"><div class="mark">✦</div><div><b>485 <span>MUSIC</span></b><span class="tag">SOUND. IDENTITY. CULTURE.</span></div></a>
-<nav><a href="#beats">Beats</a><a href="#previews">Previews</a><a href="#vaults">Sample Packs</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
-<div class="nav-tools"><button class="btn alt" id="accountOpen" type="button">My account</button><button class="btn" id="cartOpen" type="button">Cart <span id="cartCount">0</span></button></div></div></header>
+
+<div class="announcement">
+485 MUSIC · INDEPENDENT SOUND MARKETPLACE
+</div>
+
+<header>
+<div class="container nav">
+
+<a href="#" class="brand">
+<img src="assets/485-logo.png" alt="Official 485 MUSIC crown and infinity logo">
+<span>
+<strong>485 MUSIC</strong>
+<small>SOUND. IDENTITY. CULTURE.</small>
+</span>
+</a>
+
+<nav>
+<a href="#store">Marketplace</a>
+<a href="#about">About</a>
+<a href="#producers">Producers</a>
+<a href="#faq">FAQ</a>
+</nav>
+
+<div class="nav-actions">
+<button class="btn secondary" id="accountButton">Account</button>
+<button class="btn" id="cartButton">Cart <span id="cartCount">0</span></button>
+</div>
+
+</div>
+</header>
+
 <main>
-<section class="hero"><div class="wrap">
-<div class="pill">✧ Independent sound · Premium character</div>
-<h1>Own your sound.<br><span>Define your frequency.</span></h1>
-<p>Premium instrumentals, sample packs and production tools crafted by LordMarshal for artists who want a sound of their own.</p>
-<div class="actions"><a class="btn" href="#beats">Explore Beats ↗</a><a class="btn alt" href="#vaults">Explore Sample Packs</a></div>
-<div class="stats"><div class="stat"><strong>WAV + MIDI</strong><small>Producer-ready formats</small></div><div class="stat"><strong>DAW Friendly</strong><small>FL Studio & more</small></div><div class="stat"><strong>Digital</strong><small>Download-ready products</small></div><div class="stat"><strong>LordMarshal</strong><small>Independent sound</small></div></div>
-</div></section>
-<section id="beats" class="beats"><div class="wrap"><div class="head"><span class="kicker">The 485 MUSIC beat store</span><h2>Find the beat. Build the record.</h2><p>Browse LordMarshal instrumentals, compare licences and purchase through the official BeatStars store.</p><a class="btn" href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener">Shop beats on BeatStars ↗</a></div><div class="embed-note"><strong>BeatStars player integration</strong><p>Your BeatStars catalogue will appear here once the player embed is generated from your BeatStars account. For now, this button takes customers directly to your official store.</p></div></div></section>
-<section id="previews" class="preview"><div class="wrap"><div class="head"><span class="kicker">Hear before you download</span><h2>Enter the preview room.</h2><p>Listen to the demos, find the texture you need, then explore the pack that fits your session.</p></div>
-<div class="player"><div class="player-top"><button class="play" id="playBtn" aria-label="Play preview">▶</button><div><b id="trackTitle">Preview 01 · Heavy 808</b><div class="track-sub">LordMarshal Audio Vault demo</div></div></div><div class="wave" id="wave"></div><div class="status" id="status">Ready when you are</div><audio id="audio" preload="none"></audio>
-<div class="tracks"><div class="track"><span>01 · Heavy 808 Preview</span><button onclick="loadTrack(0)">Play preview</button></div><div class="track"><span>02 · Afro-Trap Drum Preview</span><button onclick="loadTrack(1)">Play preview</button></div><div class="track"><span>03 · Dark Melody Preview</span><button onclick="loadTrack(2)">Play preview</button></div></div>
-<div class="notice" id="audioNotice">Upload your own MP3 files to <b>assets/audio/</b> with the filenames preview-01.mp3, preview-02.mp3 and preview-03.mp3.</div></div></div></section>
-<section id="vaults"><div class="wrap"><div class="head"><span class="kicker">Choose your toolkit</span><h2>Find your next sound.</h2><p>Start with the essentials or step into the full producer vault. Confirm all product details and prices before launch.</p></div>
-<div class="catalogue-tools"><input id="productSearch" type="search" placeholder="Search beats, sample packs and tools…" aria-label="Search products"><select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select></div>
-<div id="catalogueStatus" class="catalogue-status">Connecting to the 485 MUSIC catalogue…</div>
-<div class="products" id="productGrid" aria-live="polite"></div>
-<div class="notice" id="productNotice"></div></div></section>
-<section id="about"><div class="wrap"><div class="head"><span class="kicker">The producer behind the sound</span><h2>LordMarshal · 485 MUSIC</h2><p>Independent music production built around distinctive sound, bold records and creative ownership.</p></div></div></section>
-<section id="tools" class="tools"><div class="wrap"><div class="head"><span class="kicker">More than a sample folder</span><h2>Tools for the whole session.</h2><p>Useful resources that help turn a spark into a finished record.</p></div><div class="features"><div class="feature"><strong>◈</strong><h3>Sound selection</h3><p>Organized sounds that are easy to audition and drop into a project.</p></div><div class="feature"><strong>⌁</strong><h3>MIDI inspiration</h3><p>Starting points for harmony and melody. Make them your own.</p></div><div class="feature"><strong>✧</strong><h3>Workflow resources</h3><p>Shortcuts, routing notes and practical production checklists.</p></div></div></div></section>
-<section id="faq"><div class="wrap"><div class="head"><span class="kicker">The useful details</span><h2>Before you hit download.</h2></div><div class="faq">
-<details><summary>Which DAWs can use these sounds?</summary><p>Standard WAV audio and MIDI files work with most modern DAWs, including FL Studio, Logic Pro, Ableton Live, Cubase and Studio One. Individual products may have additional requirements.</p></details>
-<details><summary>Are the sounds royalty-free?</summary><p>Licensing depends on the source material and the license supplied with each product. Publish clear license terms for every pack before selling or distributing it.</p></details>
-<details><summary>How do downloads and payments work?</summary><p>This is currently a static storefront. Secure payment processing, customer emails and automatic file delivery have not been connected yet.</p></details>
-</div></div></section>
+
+<section class="hero">
+<div class="container">
+
+<img class="hero-logo" src="assets/485-logo.png" alt="485 MUSIC logo">
+
+<div class="eyebrow">Premium sound · Independent creators</div>
+
+<h1>
+Own your sound.<br>
+<span>Define your frequency.</span>
+</h1>
+
+<p>
+A home for original beats, instrumentals, sample packs and production tools.
+Discover sounds from LordMarshal and independent producers.
+</p>
+
+<div class="hero-buttons">
+<a href="#store" class="btn">Explore Marketplace</a>
+<a href="#producers" class="btn secondary">Sell Your Sounds</a>
+</div>
+
+<div class="stats">
+<div><strong>Beats</strong><small>Original instrumentals</small></div>
+<div><strong>Producer Tools</strong><small>Samples and kits</small></div>
+<div><strong>Independent</strong><small>Creator catalogue</small></div>
+<div><strong>Digital</strong><small>Production resources</small></div>
+</div>
+
+</div>
+</section>
+
+<section class="marketplace" id="store">
+<div class="container">
+
+<div class="section-heading">
+<span class="kicker">The marketplace</span>
+<h2>Find your next sound.</h2>
+<p>
+Explore beats, instrumentals, sample packs and production resources.
+</p>
+</div>
+
+<div class="filters">
+<input type="search" id="searchInput" placeholder="Search products...">
+
+<select id="categoryFilter">
+<option value="">All categories</option>
+<option>Beats</option>
+<option>Instrumentals</option>
+<option>Sample Packs</option>
+<option>Drum Kits</option>
+<option>MIDI Packs</option>
+<option>Loops</option>
+<option>One Shots</option>
+<option>Production Tools</option>
+</select>
+</div>
+
+<div class="products" id="productGrid">
+<div class="catalogue-message">
+<strong>The marketplace catalogue is being connected.</strong><br>
+Approved products will appear here once the database is configured.
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container about-grid">
+
+<div>
+<span class="kicker">The identity</span>
+<h2>Sound. Identity. Culture.</h2>
+
+<p>
+485 MUSIC is an independent digital marketplace connecting artists
+and producers with original sounds and practical creative tools.
+</p>
+
+<p>
+The platform brings LordMarshal's catalogue together with products
+from approved independent creators.
+</p>
+
+<a href="#store" class="btn secondary">Explore the store</a>
+</div>
+
+<div class="logo-panel">
+<img src="assets/485-logo.png" alt="Official 485 MUSIC logo">
+</div>
+
+</div>
+</section>
+
+<section class="producers" id="producers">
+<div class="container">
+
+<div class="section-heading">
+<span class="kicker">For independent producers</span>
+<h2>Put your sound on the shelf.</h2>
+<p>
+485 MUSIC is being developed as a multi-vendor marketplace.
+Approved creators will be able to list and sell their digital products.
+</p>
+</div>
+
+<div class="producer-grid">
+
+<div class="producer-card">
+<strong>01 / Apply</strong>
+<p>Submit your producer profile for marketplace approval.</p>
+</div>
+
+<div class="producer-card">
+<strong>02 / Upload</strong>
+<p>List beats, instrumentals, sample packs, loops and MIDI products.</p>
+</div>
+
+<div class="producer-card">
+<strong>03 / Earn</strong>
+<p>Manage your products and track sales through your seller dashboard.</p>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:30px">
+<button class="btn" id="producerButton">
+Producer applications opening soon
+</button>
+</div>
+
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+
+<div class="section-heading">
+<span class="kicker">Useful details</span>
+<h2>Frequently asked questions.</h2>
+</div>
+
+<div class="faq">
+
+<details>
+<summary>Can I purchase products now?</summary>
+<p>
+The storefront is being prepared. Payment processing and automatic
+digital delivery have not yet been activated.
+</p>
+</details>
+
+<details>
+<summary>Can independent producers sell here?</summary>
+<p>
+Yes. Multi-vendor selling is part of the platform plan.
+Producer registration and approval still need to be implemented.
+</p>
+</details>
+
+<details>
+<summary>How will downloads work?</summary>
+<p>
+Customers will receive secure access to purchased files after
+the payment has been verified by the backend.
+</p>
+</details>
+
+<details>
+<summary>Are the products royalty-free?</summary>
+<p>
+Licensing will be specified individually for every product.
+Always check the licence before using a sound commercially.
+</p>
+</details>
+
+</div>
+</div>
+</section>
+
 </main>
 
-<div class="modal-backdrop" id="accountModal" hidden><section class="customer-modal" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><button class="modal-close" data-close="accountModal" aria-label="Close">×</button><span class="kicker">CUSTOMER ACCOUNT</span><h2 id="accountTitle">Your 485 MUSIC account</h2><p class="modal-copy">Sign in to your account or create one to keep your customer profile in one place.</p><form id="authForm"><label>Email address<input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters"></label><label id="nameField" hidden>Display name<input id="displayName" type="text" autocomplete="name" placeholder="Your name"></label><div class="modal-actions"><button class="btn" id="signInBtn" type="submit">Sign in</button><button class="btn alt" id="signUpBtn" type="button">Create account</button></div></form><div id="authMessage" class="modal-message" role="status"></div><div id="signedInPanel" hidden><p id="signedInText"></p><button class="btn alt" id="signOutBtn" type="button">Sign out</button></div></section></div>
-<div class="modal-backdrop" id="cartModal" hidden><section class="customer-modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><button class="modal-close" data-close="cartModal" aria-label="Close">×</button><span class="kicker">YOUR SELECTION</span><h2 id="cartTitle">Shopping cart</h2><div id="cartItems"></div><div class="cart-total" id="cartTotal"></div><p class="modal-copy">Checkout is not live yet. No payment will be taken from this cart.</p><button class="btn" id="checkoutBtn" type="button" disabled>Checkout coming soon</button></section></div>
-<footer><div class="wrap foot"><div><b>485 <span>MUSIC</span></b><div 
+<footer>
+<div class="container footer-content">
+
+<div class="footer-brand">
+<img src="assets/485-logo.png" alt="">
+<div>
+<strong>485 MUSIC</strong><br>
+<small>Sound. Identity. Culture.</small>
+</div>
+</div>
+
+<small>© <span id="year"></span> 485 MUSIC. All rights reserved.</small>
+
+</div>
+</footer>
+
+<!-- CART -->
+
+<div class="cart-panel" id="cartPanel">
+<div class="cart-box">
+
+<h2>Your Cart</h2>
+
+<div id="cartItems">
+<p class="cart-note">Your cart is currently empty.</p>
+</div>
+
+<div class="cart-total" id="cartTotal"></div>
+
+<p class="cart-note">
+Checkout is not active yet. This preview does not collect payments.
+</p>
+
+<button class="btn secondary" id="closeCart">Close</button>
+
+</div>
+</div>
+
+<script>
+const cart = [];
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+const cartPanel = document.getElementById("cartPanel");
+
+document.getElementById("cartButton").onclick = () => {
+  renderCart();
+  cartPanel.classList.add("open");
+};
+
+document.getElementById("closeCart").onclick = () => {
+  cartPanel.classList.remove("open");
+};
+
+cartPanel.addEventListener("click", event => {
+  if (event.target === cartPanel) {
+    cartPanel.classList.remove("open");
+  }
+});
+
+document.getElementById("accountButton").onclick = () => {
+  alert("Customer accounts will be activated when Supabase authentication is connected.");
+};
+
+document.getElementById("producerButton").onclick = () => {
+  alert("Producer registration will open after seller accounts and approval are implemented.");
+};
+
+function renderCart() {
+  const items = document.getElementById("cartItems");
+  const total = document.getElementById("cartTotal");
+
+  document.getElementById("cartCount").textContent = cart.length;
+
+  if (!cart.length) {
+    items.innerHTML =
+      '<p class="cart-note">Your cart is currently empty.</p>';
+    total.textContent = "";
+    return;
+  }
+
+  items.innerHTML = cart.map((item,index) => `
+    <div class="cart-item">
+      <span>${item.name}</span>
+      <button onclick="removeItem(${index})">Remove</button>
+    </div>
+  `).join("");
+
+  total.textContent = cart.length + " item(s)";
+}
+
+function removeItem(index) {
+  cart.splice(index,1);
+  renderCart();
+}
+
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+
+function updateCatalogueNotice() {
+  document.getElementById("productGrid").innerHTML =
+    '<div class="catalogue-message">The live product catalogue has not been connected yet. Your search will work when the database is activated.</div>';
+}
+
+searchInput.addEventListener("input",updateCatalogueNotice);
+categoryFilter.addEventListener("change",updateCatalogueNotice);
+</script>
+
+</body>
+</html>
