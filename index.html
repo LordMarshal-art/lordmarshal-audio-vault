@@ -604,11 +604,25 @@ section { padding: 70px 0; }
   font-size: 13px;
   font-weight: 700;
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .faq summary::-webkit-details-marker { display: none; }
 
-.faq p {
+.faq summary::after {
+  content: "+";
+  color: var(--gold-dark);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq details p {
   margin-top: 10px;
   color: var(--muted);
   font-size: 12px;
@@ -690,10 +704,18 @@ footer {
 .cart-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
   font-size: 13px;
+}
+
+.cart-remove {
+  color: var(--gold-dark);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .cart-total {
@@ -769,7 +791,7 @@ footer {
       <button class="btn" type="button" onclick="openCart()">
         Cart <span id="cartCount">0</span>
       </button>
-      <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileNav()">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
         <span></span>
       </button>
     </div>
@@ -854,15 +876,15 @@ footer {
     </div>
 
     <div class="filters">
-      <button class="filter active" onclick="setCategory('All', this)">All</button>
-      <button class="filter" onclick="setCategory('Beats', this)">Beats</button>
-      <button class="filter" onclick="setCategory('Instrumentals', this)">Instrumentals</button>
-      <button class="filter" onclick="setCategory('Sample Packs', this)">Sample Packs</button>
-      <button class="filter" onclick="setCategory('Drum Kits', this)">Drum Kits</button>
-      <button class="filter" onclick="setCategory('MIDI Packs', this)">MIDI Packs</button>
-      <button class="filter" onclick="setCategory('Loops', this)">Loops</button>
-      <button class="filter" onclick="setCategory('One Shots', this)">One Shots</button>
-      <button class="filter" onclick="setCategory('Production Tools', this)">Production Tools</button>
+      <button class="filter active" type="button" onclick="setCategory('All', this)">All</button>
+      <button class="filter" type="button" onclick="setCategory('Beats', this)">Beats</button>
+      <button class="filter" type="button" onclick="setCategory('Instrumentals', this)">Instrumentals</button>
+      <button class="filter" type="button" onclick="setCategory('Sample Packs', this)">Sample Packs</button>
+      <button class="filter" type="button" onclick="setCategory('Drum Kits', this)">Drum Kits</button>
+      <button class="filter" type="button" onclick="setCategory('MIDI Packs', this)">MIDI Packs</button>
+      <button class="filter" type="button" onclick="setCategory('Loops', this)">Loops</button>
+      <button class="filter" type="button" onclick="setCategory('One Shots', this)">One Shots</button>
+      <button class="filter" type="button" onclick="setCategory('Production Tools', this)">Production Tools</button>
     </div>
 
     <div class="catalogue-status" id="catalogueStatus">
@@ -896,7 +918,7 @@ footer {
         Discover original instrumentals and find the sound for your next record.
         Beat licensing and purchases are currently handled through BeatStars.
       </p>
-      <a class="btn" href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener">
+      <a class="btn" href="https://www.beatstars.com/LordMarshal" target="_blank" rel="noopener noreferrer">
         Shop Beats on BeatStars ↗
       </a>
     </div>
@@ -979,41 +1001,46 @@ footer {
     </div>
 
     <div class="faq">
-      **Summary:**
-Can I purchase products now?
+      <details>
+        <summary>Can I purchase products now?</summary>
         <p>
           The storefront is being prepared. Payment processing and automatic
           digital delivery have not yet been activated.
         </p>
+      </details>
 
-      **Summary:**
-Can independent producers sell here?
+      <details>
+        <summary>Can independent producers sell here?</summary>
         <p>
           Yes. Multi-vendor selling is part of the platform plan.
           Producer registration and approval still need to be implemented.
         </p>
+      </details>
 
-      **Summary:**
-How will downloads work?
+      <details>
+        <summary>How will downloads work?</summary>
         <p>
           Customers will receive secure access to purchased files after
           payment has been verified by the backend.
         </p>
+      </details>
 
-      **Summary:**
-Are the products royalty-free?
+      <details>
+        <summary>Are the products royalty-free?</summary>
         <p>
           Licensing will be specified individually for every product.
           Always check the licence before using a sound commercially.
         </p>
+      </details>
 
-      **Summary:**
-Which DAWs can use these sounds?
+      <details>
+        <summary>Which DAWs can use these sounds?</summary>
         <p>
           Standard WAV audio and MIDI files work with most modern DAWs,
           including FL Studio, Logic Pro, Ableton Live and Cubase.
           Individual products may have additional requirements.
         </p>
+      </details>
     </div>
   </div>
 </section>
@@ -1038,10 +1065,10 @@ Which DAWs can use these sounds?
 </footer>
 
 <!-- Cart -->
-<div class="cart-panel" id="cartPanel" onclick="closeCartOutside(event)">
+<div class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-labelledby="cartTitle" onclick="closeCartOutside(event)">
   <div class="cart-box">
-    <button class="close-cart" onclick="closeCart()" aria-label="Close cart">×</button>
-    <h2>Your cart</h2>
+    <button class="close-cart" type="button" onclick="closeCart()" aria-label="Close cart">×</button>
+    <h2 id="cartTitle">Your cart</h2>
     <div id="cartItems">
       <p class="cart-message">Your cart is currently empty.</p>
     </div>
@@ -1058,11 +1085,17 @@ let selectedCategory = "All";
 let cart = [];
 
 function toggleMobileNav() {
-  document.getElementById("mobileNav").classList.toggle("open");
+  const nav = document.getElementById("mobileNav");
+  const toggle = document.querySelector(".menu-toggle");
+  const isOpen = nav.classList.toggle("open");
+  if (toggle) toggle.setAttribute("aria-expanded", String(isOpen));
 }
 
 function closeMobileNav() {
-  document.getElementById("mobileNav").classList.remove("open");
+  const nav = document.getElementById("mobileNav");
+  const toggle = document.querySelector(".menu-toggle");
+  nav.classList.remove("open");
+  if (toggle) toggle.setAttribute("aria-expanded", "false");
 }
 
 function setCategory(category, button) {
@@ -1073,28 +1106,43 @@ function setCategory(category, button) {
 }
 
 function filterProducts() {
-  const search = document.getElementById("productSearch").value.toLowerCase();
+  const search = document.getElementById("productSearch").value.trim().toLowerCase();
   const cards = document.querySelectorAll(".product-card");
-  let visible = 0;
+  const emptyState = document.querySelector("#productGrid .empty-state");
+  const status = document.getElementById("catalogueStatus");
 
+  if (cards.length === 0) {
+    if (emptyState) emptyState.style.display = "";
+    status.textContent = "The marketplace catalogue is being connected.";
+    return;
+  }
+
+  let visible = 0;
   cards.forEach(card => {
     const name = (card.dataset.name || "").toLowerCase();
     const category = card.dataset.category || "";
-    const matchesSearch = name.includes(search);
+    const matchesSearch = !search || name.includes(search);
     const matchesCategory = selectedCategory === "All" || category === selectedCategory;
     const show = matchesSearch && matchesCategory;
     card.style.display = show ? "flex" : "none";
     if (show) visible++;
   });
 
-  const status = document.getElementById("catalogueStatus");
-  if (cards.length === 0) {
-    status.textContent = "The marketplace catalogue is being connected.";
-  } else if (visible === 0) {
+  if (emptyState) {
+    emptyState.style.display = visible === 0 ? "" : "none";
+  }
+
+  if (visible === 0) {
     status.textContent = "No products match your search.";
   } else {
     status.textContent = visible + " product(s) found.";
   }
+}
+
+function addToCart(name) {
+  if (!name) return;
+  cart.push({ name: String(name) });
+  renderCart();
 }
 
 function openCart() {
@@ -1124,7 +1172,7 @@ function renderCart() {
   items.innerHTML = cart.map((item, index) => `
     <div class="cart-item">
       <span>${escapeHTML(item.name)}</span>
-      <button type="button" onclick="removeCartItem(${index})">Remove</button>
+      <button class="cart-remove" type="button" onclick="removeCartItem(${index})">Remove</button>
     </div>
   `).join("");
 
@@ -1154,6 +1202,10 @@ function showSellerNotice() {
   document.getElementById("sellerMessage").textContent =
     "Producer registration will open after the seller dashboard is connected.";
 }
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeCart();
+});
 </script>
 
 </body>
