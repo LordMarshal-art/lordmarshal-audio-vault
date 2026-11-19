@@ -14,6 +14,9 @@
 <!-- Primary logo as favicon -->
 <link rel="icon" type="image/png" href="assets/file_00000000bc986246a092cfd3bf702d2a.png">
 
+<!-- Paystack InlineJS V2 -->
+<script src="https://js.paystack.co/v2/inline.js" async></script>
+
 <style>
 :root {
   --bg: #fafaf7;
@@ -145,6 +148,11 @@ header {
   text-transform: uppercase;
   transition: .2s;
   white-space: nowrap;
+}
+
+.btn.sm {
+  padding: 9px 13px;
+  font-size: 10px;
 }
 
 .btn:hover {
@@ -456,6 +464,30 @@ section { padding: 70px 0; }
   flex-grow: 1;
 }
 
+.preview-player {
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fafaf7;
+}
+
+.preview-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.preview-player audio {
+  width: 100%;
+  height: 34px;
+  display: block;
+}
+
 .product-footer {
   display: flex;
   align-items: center;
@@ -683,6 +715,8 @@ footer {
 
 .cart-box {
   width: min(460px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
   padding: 28px;
   border: 1px solid var(--gold-light);
   border-radius: 14px;
@@ -711,6 +745,17 @@ footer {
   font-size: 13px;
 }
 
+.cart-item-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-price {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .cart-remove {
   color: var(--gold-dark);
   font-size: 11px;
@@ -719,16 +764,64 @@ footer {
 }
 
 .cart-total {
-  margin: 18px 0;
+  margin: 16px 0;
   text-align: right;
-  font-weight: 800;
+  font: 700 16px "Space Grotesk", sans-serif;
+}
+
+.checkout-field {
+  margin-bottom: 14px;
+}
+
+.checkout-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.checkout-field input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.checkout-field input:focus {
+  border-color: var(--gold);
 }
 
 .cart-message {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.7;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.cart-status {
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+.cart-status.info {
+  display: block;
+  background: #f8f3e7;
+  border: 1px solid var(--gold-light);
+  color: #6f5320;
+}
+
+.cart-status.error {
+  display: block;
+  background: #fdf2f2;
+  border: 1px solid #f0c4c4;
+  color: #8f2424;
 }
 
 /* Responsive */
@@ -872,29 +965,29 @@ footer {
         type="search"
         placeholder="Search products and sounds..."
         aria-label="Search marketplace products"
-        oninput="filterProducts()">
+        oninput="applyFilters()">
     </div>
 
-    <div class="filters">
-      <button class="filter active" type="button" onclick="setCategory('All', this)">All</button>
-      <button class="filter" type="button" onclick="setCategory('Beats', this)">Beats</button>
-      <button class="filter" type="button" onclick="setCategory('Instrumentals', this)">Instrumentals</button>
-      <button class="filter" type="button" onclick="setCategory('Sample Packs', this)">Sample Packs</button>
-      <button class="filter" type="button" onclick="setCategory('Drum Kits', this)">Drum Kits</button>
-      <button class="filter" type="button" onclick="setCategory('MIDI Packs', this)">MIDI Packs</button>
-      <button class="filter" type="button" onclick="setCategory('Loops', this)">Loops</button>
-      <button class="filter" type="button" onclick="setCategory('One Shots', this)">One Shots</button>
-      <button class="filter" type="button" onclick="setCategory('Production Tools', this)">Production Tools</button>
+    <div class="filters" id="categoryFilters">
+      <button class="filter active" type="button" data-category="All" onclick="setCategory('All', this)">All</button>
+      <button class="filter" type="button" data-category="Beats" onclick="setCategory('Beats', this)">Beats</button>
+      <button class="filter" type="button" data-category="Instrumentals" onclick="setCategory('Instrumentals', this)">Instrumentals</button>
+      <button class="filter" type="button" data-category="Sample Packs" onclick="setCategory('Sample Packs', this)">Sample Packs</button>
+      <button class="filter" type="button" data-category="Drum Kits" onclick="setCategory('Drum Kits', this)">Drum Kits</button>
+      <button class="filter" type="button" data-category="MIDI Packs" onclick="setCategory('MIDI Packs', this)">MIDI Packs</button>
+      <button class="filter" type="button" data-category="Loops" onclick="setCategory('Loops', this)">Loops</button>
+      <button class="filter" type="button" data-category="One Shots" onclick="setCategory('One Shots', this)">One Shots</button>
+      <button class="filter" type="button" data-category="Production Tools" onclick="setCategory('Production Tools', this)">Production Tools</button>
     </div>
 
     <div class="catalogue-status" id="catalogueStatus">
-      The marketplace catalogue is being connected.
+      Loading published sounds...
     </div>
 
     <div class="products" id="productGrid">
       <div class="empty-state">
-        <strong>Welcome to the 485 MUSIC marketplace.</strong><br>
-        Approved products will appear here once the product database is connected.
+        <strong>Loading 485 MUSIC catalogue...</strong><br>
+        Fetching published beats, kits, and packs.
       </div>
     </div>
   </div>
@@ -1004,8 +1097,9 @@ footer {
       <details>
         <summary>Can I purchase products now?</summary>
         <p>
-          The storefront is being prepared. Payment processing and automatic
-          digital delivery have not yet been activated.
+          Select sounds can be added to your cart and checked out via Paystack once
+          live keys are configured. Digital fulfillment and order receipts are
+          verified after payment confirmation.
         </p>
       </details>
 
@@ -1013,14 +1107,14 @@ footer {
         <summary>Can independent producers sell here?</summary>
         <p>
           Yes. Multi-vendor selling is part of the platform plan.
-          Producer registration and approval still need to be implemented.
+          Producer registration and approval will roll out after the core store.
         </p>
       </details>
 
       <details>
         <summary>How will downloads work?</summary>
         <p>
-          Customers will receive secure access to purchased files after
+          Customers receive secure access to purchased files after
           payment has been verified by the backend.
         </p>
       </details>
@@ -1028,8 +1122,8 @@ footer {
       <details>
         <summary>Are the products royalty-free?</summary>
         <p>
-          Licensing will be specified individually for every product.
-          Always check the licence before using a sound commercially.
+          Licensing is specified individually for every product.
+          Always check the licence details before commercial release.
         </p>
       </details>
 
@@ -1073,115 +1167,393 @@ footer {
       <p class="cart-message">Your cart is currently empty.</p>
     </div>
     <div class="cart-total" id="cartTotal"></div>
-    <p class="cart-message">
-      Checkout is not connected yet. No payment will be collected here.
-    </p>
-    <button class="btn" type="button" disabled>Checkout coming soon</button>
+
+    <div class="checkout-field">
+      <label for="buyerEmail">Email for order &amp; download delivery</label>
+      <input id="buyerEmail" type="email" inputmode="email" placeholder="artist@example.com" autocomplete="email">
+    </div>
+
+    <div class="cart-status" id="cartStatus" role="status" aria-live="polite"></div>
+
+    <button class="btn" id="paystackBtn" type="button" style="width: 100%;" onclick="checkoutWithPaystack()">
+      Pay with Paystack
+    </button>
   </div>
 </div>
 
-<script>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+// Replace these placeholders with your actual project credentials
+const CONFIG = {
+  supabaseUrl: "YOUR_SUPABASE_URL",
+  supabaseAnonKey: "YOUR_SUPABASE_ANON_KEY",
+  paystackPublicKey: "YOUR_PAYSTACK_PUBLIC_KEY",
+  currency: "NGN"
+};
+
+const hasSupabaseConfig =
+  CONFIG.supabaseUrl &&
+  !CONFIG.supabaseUrl.startsWith("YOUR_") &&
+  CONFIG.supabaseAnonKey &&
+  !CONFIG.supabaseAnonKey.startsWith("YOUR_");
+
+const hasPaystackConfig =
+  Boolean(CONFIG.paystackPublicKey) && !CONFIG.paystackPublicKey.startsWith("YOUR_");
+
+const supabase = hasSupabaseConfig
+  ? createClient(CONFIG.supabaseUrl, CONFIG.supabaseAnonKey)
+  : null;
+
+let allProducts = [];
 let selectedCategory = "All";
 let cart = [];
 
-function toggleMobileNav() {
+// Expose UI handlers used by inline attributes
+window.toggleMobileNav = function toggleMobileNav() {
   const nav = document.getElementById("mobileNav");
   const toggle = document.querySelector(".menu-toggle");
   const isOpen = nav.classList.toggle("open");
   if (toggle) toggle.setAttribute("aria-expanded", String(isOpen));
-}
+};
 
-function closeMobileNav() {
+window.closeMobileNav = function closeMobileNav() {
   const nav = document.getElementById("mobileNav");
   const toggle = document.querySelector(".menu-toggle");
   nav.classList.remove("open");
   if (toggle) toggle.setAttribute("aria-expanded", "false");
-}
+};
 
-function setCategory(category, button) {
+window.setCategory = function setCategory(category, button) {
   selectedCategory = category;
   document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
-  button.classList.add("active");
-  filterProducts();
-}
+  if (button) button.classList.add("active");
+  applyFilters();
+};
 
-function filterProducts() {
-  const search = document.getElementById("productSearch").value.trim().toLowerCase();
-  const cards = document.querySelectorAll(".product-card");
-  const emptyState = document.querySelector("#productGrid .empty-state");
-  const status = document.getElementById("catalogueStatus");
+window.applyFilters = function applyFilters() {
+  const query = (document.getElementById("productSearch").value || "").trim().toLowerCase();
+  const filtered = allProducts.filter(item => {
+    const title = (item.title || "").toLowerCase();
+    const desc = (item.description || "").toLowerCase();
+    const cat = (item.category || "").toLowerCase();
+    const matchesSearch = !query || title.includes(query) || desc.includes(query) || cat.includes(query);
+    const matchesCategory =
+      selectedCategory === "All" ||
+      (item.category || "").toLowerCase() === selectedCategory.toLowerCase();
+    return matchesSearch && matchesCategory;
+  });
 
-  if (cards.length === 0) {
-    if (emptyState) emptyState.style.display = "";
-    status.textContent = "The marketplace catalogue is being connected.";
+  renderProducts(filtered);
+};
+
+window.addToCartById = function addToCartById(productId) {
+  const product = allProducts.find(p => String(p.id) === String(productId));
+  if (!product) return;
+  const priceNgn = Number(product.price_ngn) || 0;
+  cart.push({
+    id: product.id,
+    title: product.title,
+    category: product.category || "Sound",
+    price_ngn: priceNgn,
+    file_path: product.file_path || ""
+  });
+  updateCartBadge();
+  setCartStatus(`Added "${product.title}" to cart.`, "info");
+};
+
+window.removeCartItem = function removeCartItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+};
+
+window.openCart = function openCart() {
+  renderCart();
+  document.getElementById("cartPanel").classList.add("open");
+};
+
+window.closeCart = function closeCart() {
+  document.getElementById("cartPanel").classList.remove("open");
+};
+
+window.closeCartOutside = function closeCartOutside(event) {
+  if (event.target.id === "cartPanel") closeCart();
+};
+
+window.showAccountNotice = function showAccountNotice() {
+  alert("Customer accounts and order history are being connected. Check back soon.");
+};
+
+window.showSellerNotice = function showSellerNotice() {
+  document.getElementById("sellerMessage").textContent =
+    "Stage 1 focuses on LordMarshal's catalogue first. Producer applications open in Stage 2.";
+};
+
+window.checkoutWithPaystack = function checkoutWithPaystack() {
+  const emailInput = document.getElementById("buyerEmail");
+  const email = (emailInput.value || "").trim();
+
+  if (!cart.length) {
+    setCartStatus("Your cart is empty. Add a beat, kit, or pack first.", "error");
     return;
   }
 
-  let visible = 0;
-  cards.forEach(card => {
-    const name = (card.dataset.name || "").toLowerCase();
-    const category = card.dataset.category || "";
-    const matchesSearch = !search || name.includes(search);
-    const matchesCategory = selectedCategory === "All" || category === selectedCategory;
-    const show = matchesSearch && matchesCategory;
-    card.style.display = show ? "flex" : "none";
-    if (show) visible++;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setCartStatus("Please enter a valid email address before paying.", "error");
+    emailInput.focus();
+    return;
+  }
+
+  if (!hasPaystackConfig) {
+    setCartStatus(
+      "Add your Paystack public key (pk_live_... or pk_test_...) in CONFIG to launch checkout.",
+      "error"
+    );
+    return;
+  }
+
+  if (typeof window.PaystackPop !== "function") {
+    setCartStatus("Paystack script is still loading. Please try again in a moment.", "error");
+    return;
+  }
+
+  const totalNgn = getCartTotalNgn();
+  const amountInKobo = Math.round(totalNgn * 100);
+  if (amountInKobo <= 0) {
+    setCartStatus("Cart total must be greater than ₦0.", "error");
+    return;
+  }
+
+  const reference = "485M_" + Date.now() + "_" + Math.random().toString(36).slice(2, 7);
+  const payBtn = document.getElementById("paystackBtn");
+  payBtn.disabled = true;
+  setCartStatus("Opening Paystack secure checkout...", "info");
+
+  try {
+    const popup = new window.PaystackPop();
+    popup.newTransaction({
+      key: CONFIG.paystackPublicKey,
+      email,
+      amount: amountInKobo,
+      currency: CONFIG.currency,
+      ref: reference,
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Storefront",
+            variable_name: "storefront",
+            value: "485 MUSIC"
+          },
+          {
+            display_name: "Items Count",
+            variable_name: "items_count",
+            value: String(cart.length)
+          }
+        ],
+        items: cart.map(item => ({
+          id: item.id,
+          title: item.title,
+          price_ngn: item.price_ngn,
+          file_path: item.file_path
+        }))
+      },
+      onSuccess: (transaction) => {
+        payBtn.disabled = false;
+        const txRef = (transaction && transaction.reference) || reference;
+        cart = [];
+        renderCart();
+        setCartStatus(
+          `Payment received (Ref: ${txRef}). Verification & download delivery will finalize shortly.`,
+          "info"
+        );
+      },
+      onCancel: () => {
+        payBtn.disabled = false;
+        setCartStatus("Payment popup closed. Your cart items are still saved.", "error");
+      }
+    });
+  } catch (err) {
+    payBtn.disabled = false;
+    setCartStatus("Unable to launch Paystack right now. Please check your key and connection.", "error");
+  }
+};
+
+function getCartTotalNgn() {
+  return cart.reduce((sum, item) => sum + (Number(item.price_ngn) || 0), 0);
+}
+
+function formatNgn(amount) {
+  const numeric = Number(amount) || 0;
+  return "₦" + numeric.toLocaleString("en-NG", {
+    minimumFractionDigits: numeric % 1 === 0 ? 0 : 2,
+    maximumFractionDigits: 2
   });
+}
 
-  if (emptyState) {
-    emptyState.style.display = visible === 0 ? "" : "none";
+function updateCartBadge() {
+  document.getElementById("cartCount").textContent = String(cart.length);
+}
+
+function setCartStatus(message, type) {
+  const el = document.getElementById("cartStatus");
+  if (!message) {
+    el.textContent = "";
+    el.className = "cart-status";
+    return;
   }
-
-  if (visible === 0) {
-    status.textContent = "No products match your search.";
-  } else {
-    status.textContent = visible + " product(s) found.";
-  }
-}
-
-function addToCart(name) {
-  if (!name) return;
-  cart.push({ name: String(name) });
-  renderCart();
-}
-
-function openCart() {
-  renderCart();
-  document.getElementById("cartPanel").classList.add("open");
-}
-
-function closeCart() {
-  document.getElementById("cartPanel").classList.remove("open");
-}
-
-function closeCartOutside(event) {
-  if (event.target.id === "cartPanel") closeCart();
+  el.textContent = message;
+  el.className = `cart-status ${type || "info"}`;
 }
 
 function renderCart() {
-  const items = document.getElementById("cartItems");
-  const total = document.getElementById("cartTotal");
-  document.getElementById("cartCount").textContent = cart.length;
+  const itemsEl = document.getElementById("cartItems");
+  const totalEl = document.getElementById("cartTotal");
+  const payBtn = document.getElementById("paystackBtn");
+
+  updateCartBadge();
 
   if (!cart.length) {
-    items.innerHTML = '<p class="cart-message">Your cart is currently empty.</p>';
-    total.textContent = "";
+    itemsEl.innerHTML = '<p class="cart-message">Your cart is currently empty.</p>';
+    totalEl.textContent = "";
+    payBtn.disabled = true;
     return;
   }
 
-  items.innerHTML = cart.map((item, index) => `
+  payBtn.disabled = false;
+  itemsEl.innerHTML = cart.map((item, index) => `
     <div class="cart-item">
-      <span>${escapeHTML(item.name)}</span>
+      <div class="cart-item-meta">
+        <span>${escapeHTML(item.title)}</span>
+        <span class="cart-item-price">${escapeHTML(item.category)} · ${formatNgn(item.price_ngn)}</span>
+      </div>
       <button class="cart-remove" type="button" onclick="removeCartItem(${index})">Remove</button>
     </div>
   `).join("");
 
-  total.textContent = cart.length + " item(s)";
+  totalEl.textContent = `Total: ${formatNgn(getCartTotalNgn())}`;
 }
 
-function removeCartItem(index) {
-  cart.splice(index, 1);
-  renderCart();
+function renderProducts(products) {
+  const grid = document.getElementById("productGrid");
+  const status = document.getElementById("catalogueStatus");
+
+  if (!hasSupabaseConfig) {
+    status.textContent = "Connect your Supabase URL and anon key in CONFIG to load live products.";
+    grid.innerHTML = `
+      <div class="empty-state">
+        <strong>Supabase catalogue not configured yet.</strong><br>
+        Add your <code>supabaseUrl</code> and <code>supabaseAnonKey</code> in the script CONFIG block to fetch published sounds.
+      </div>
+    `;
+    return;
+  }
+
+  if (!products.length) {
+    status.textContent = allProducts.length
+      ? "No published sounds match your current filter."
+      : "No published products in the catalogue yet.";
+    grid.innerHTML = `
+      <div class="empty-state">
+        <strong>Nothing found here right now.</strong><br>
+        Try clearing your search or switching categories.
+      </div>
+    `;
+    return;
+  }
+
+  status.textContent = `${products.length} published sound${products.length === 1 ? "" : "s"} available.`;
+
+  grid.innerHTML = products.map(item => {
+    const safeTitle = escapeHTML(item.title || "Untitled Sound");
+    const safeCategory = escapeHTML(item.category || "Sound");
+    const safeDesc = escapeHTML(item.description || "");
+    const safeId = escapeAttr(String(item.id));
+    const hasCover = Boolean(item.cover_url) && isSafeUrl(item.cover_url);
+    const hasPreview = Boolean(item.preview_url) && isSafeUrl(item.preview_url);
+    const initials = escapeHTML((item.title || "485").trim().slice(0, 3).toUpperCase());
+
+    const coverMarkup = hasCover
+      ? `<img src="${escapeAttr(item.cover_url)}" alt="${safeTitle} cover art" loading="lazy">`
+      : `<span>${initials}</span>`;
+
+    const audioMarkup = hasPreview
+      ? `
+        <div class="preview-player">
+          <span class="preview-label">MP3 Preview</span>
+          <audio controls preload="none" src="${escapeAttr(item.preview_url)}"></audio>
+        </div>
+      `
+      : `
+        <div class="preview-player">
+          <span class="preview-label">Preview</span>
+          <span class="cart-item-price">No audio preview attached</span>
+        </div>
+      `;
+
+    return `
+      <article class="product-card" data-category="${safeCategory}" data-name="${safeTitle.toLowerCase()}">
+        <div class="product-image">${coverMarkup}</div>
+        <span class="product-type">${safeCategory}</span>
+        <h3>${safeTitle}</h3>
+        <p>${safeDesc}</p>
+        ${audioMarkup}
+        <div class="product-footer">
+          <span class="product-price">${formatNgn(item.price_ngn)}</span>
+          <button class="btn sm" type="button" onclick="addToCartById('${safeId}')">Add to Cart</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  // Ensure only one MP3 preview plays at a time
+  grid.querySelectorAll("audio").forEach(player => {
+    player.addEventListener("play", () => {
+      grid.querySelectorAll("audio").forEach(other => {
+        if (other !== player) other.pause();
+      });
+    });
+  });
+}
+
+async function loadPublishedProducts() {
+  const grid = document.getElementById("productGrid");
+  const status = document.getElementById("catalogueStatus");
+
+  if (!hasSupabaseConfig) {
+    renderProducts([]);
+    return;
+  }
+
+  status.textContent = "Loading published sounds...";
+
+  const { data, error } = await supabase
+    .from("products")
+    .select("id, title, category, description, price_ngn, cover_url, preview_url, file_path, published, created_at")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    status.textContent = "Could not load products from Supabase.";
+    grid.innerHTML = `
+      <div class="empty-state">
+        <strong>Catalogue connection issue.</strong><br>
+        ${escapeHTML(error.message || "Check your Supabase table and RLS policies.")}
+      </div>
+    `;
+    return;
+  }
+
+  allProducts = Array.isArray(data) ? data : [];
+  applyFilters();
+}
+
+function isSafeUrl(url) {
+  try {
+    const parsed = new URL(String(url), window.location.href);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
 }
 
 function escapeHTML(value) {
@@ -1194,18 +1566,16 @@ function escapeHTML(value) {
   })[char]);
 }
 
-function showAccountNotice() {
-  alert("Customer accounts are being connected. Please check back soon.");
-}
-
-function showSellerNotice() {
-  document.getElementById("sellerMessage").textContent =
-    "Producer registration will open after the seller dashboard is connected.";
+function escapeAttr(value) {
+  return escapeHTML(value).replace(/`/g, "&#96;");
 }
 
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeCart();
 });
+
+renderCart();
+loadPublishedProducts();
 </script>
 
 </body>
