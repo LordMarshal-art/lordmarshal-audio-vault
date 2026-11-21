@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>485 MUSIC — Producer Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --border: #262626;
+      --gold: #d4af37;
+      --text: #f5f5f5;
+      --muted: #888;
+    }
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+    .container { max-width: 520px; margin: 0 auto; }
+    h1 { font-size: 1.3rem; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px; }
+    p.sub { color: var(--muted); font-size: 0.85rem; margin-top: 0; margin-bottom: 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 16px; }
+    label { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; margin-top: 12px; }
+    input, select {
+      width: 100%; padding: 11px; border-radius: 8px; border: 1px solid var(--border);
+      background: #0f0f0f; color: var(--text); font-size: 0.95rem;
+    }
+    button {
+      width: 100%; padding: 13px; margin-top: 18px; border: none; border-radius: 8px;
+      background: var(--gold); color: #000; font-weight: 700; font-size: 0.95rem; cursor: pointer;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    button.secondary { background: #222; color: var(--text); margin-top: 10px; }
+    #status {
+      margin-top: 14px; padding: 12px; border-radius: 8px; font-size: 0.85rem;
+      background: #111; border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>485 MUSIC // PRODUCER VAULT</h1>
+    <p class="sub">Upload preview audio &amp; paid ZIP deliverables to Supabase</p>
+
+    <!-- LOGIN CARD -->
+    <div id="auth-card" class="card">
+      <strong>Producer Sign In</strong>
+      <label>Email</label>
+      <input type="email" id="email" placeholder="producer@485music.com" />
+      <label>Password</label>
+      <input type="password" id="password" placeholder="••••••••" />
+      <button id="login-btn">Sign In to Dashboard</button>
+    </div>
+
+    <!-- UPLOAD CARD -->
+    <div id="upload-card" class="card hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <strong id="user-badge">Signed in</strong>
+        <button id="logout-btn" class="secondary" style="width:auto; padding:6px 12px; margin:0;">Sign Out</button>
+      </div>
+
+      <form id="upload-form">
+        <label>Pack / Beat Title</label>
+        <input type="text" id="title" placeholder="e.g. Amapiano Sample Pack Vol. 1" required />
+
+        <label>Category</label>
+        <select id="category">
+          <option value="Sample Pack">Sample Pack</option>
+          <option value="Beat">Beat</option>
+          <option value="Drum Kit">Drum Kit</option>
+          <option value="MIDI Pack">MIDI Pack</option>
+        </select>
+
+        <label>Price (NGN ₦)</label>
+        <input type="number" id="price" placeholder="15000" min="500" required />
+
+        <label>Preview Audio (.mp3 — goes to 485-previews)</label>
+        <input type="file" id="preview-file" accept="audio/*" required />
+
+        <label>Full Downloadable Archive (.zip — goes to 485-downloads, max 50MB)</label>
+        <input type="file" id="download-file" accept=".zip,application/zip,application/x-zip-compressed" required />
+
+        <button type="submit" id="submit-btn">Upload &amp; Publish Product</button>
+      </form>
+    </div>
+
+    <div id="status">Ready. Waiting for producer sign-in...</div>
+  </div>
+
+  <script>
+    // 1. Replace with your 485 music Supabase Project URL & Anon Key
+    const SUPABASE_URL = "YOUR_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+    // Avoid shadowing window.supabase global
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const statusEl = document.getElementById("status");
+    const authCard = document.getElementById("auth-card");
+    const uploadCard = document.getElementById("upload-card");
+    const userBadge = document.getElementById("user-badge");
+
+    function logStatus(msg) {
+      statusEl.textContent = msg;
+    }
+
+    // Check active session on load
+    async function checkSession() {
+      const { data: { session } } = await db.auth.getSession();
+      if (session) {
+        authCard.classList.add("hidden");
+        uploadCard.classList.remove("hidden");
+        userBadge.textContent = `Logged in: ${session.user.email}`;
+        logStatus("Authenticated. Ready to upload.");
+      } else {
+        authCard.classList.remove("hidden");
+        uploadCard.classList.add("hidden");
+      }
+    }
+
+    document.getElementById("login-btn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      logStatus("Signing in...");
+      const { error } = await db.auth.signInWithPassword({ email, password });
+      if (error) return logStatus(`Auth Error: ${error.message}`);
+      checkSession();
+    });
+
+    document.getElementById("logout-btn").addEventListener("click", async () => {
+      await db.auth.signOut();
+      logStatus("Signed out.");
+      checkSession();
+    });
+
+    // Slug helper so filenames don't break URLs with spaces/special chars
+    function slugify(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    }
+
+    document.getElementById("upload-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("submit-btn");
+      btn.disabled = true;
+
+      try {
+        const title = document.getElementById("title").value.trim();
+        const category = document.getElementById("category").value;
+        const priceNgn = parseInt(document.getElementById("price").value, 10);
+        const previewFile = document.getElementById("preview-file").files[0];
+        const downloadFile = document.getElementById("download-file").files[0];
+
+        if (!previewFile || !downloadFile) throw new Error("Select both a preview MP3 and a ZIP file.");
+        if (downloadFile.size > 50 * 1024 * 1024) {
+          throw new Error(`ZIP is ${(downloadFile.size / 1024 / 1024).toFixed(1)} MB — exceeds Supabase Free 50 MB limit.`);
+        }
+
+        const stamp = Date.now();
+        const baseSlug = slugify(title);
+        const previewExt = previewFile.name.split(".").pop() || "mp3";
+        const previewPath = `${baseSlug}-${stamp}.${previewExt}`;
+        const downloadPath = `${baseSlug}-${stamp}.zip`;
+
+        // Step A: Upload Preview MP3 to public bucket (485-previews)
+        logStatus("1/3 Uploading preview audio to 485-previews...");
+        const { error: prevErr } = await db.storage
+          .from("485-previews")
+          .upload(previewPath, previewFile, { contentType: previewFile.type || "audio/mpeg", upsert: false });
+        if (prevErr) throw new Error(`Preview Upload Failed: ${prevErr.message}`);
+
+        // Step B: Upload Full ZIP to private bucket (485-downloads)
+        logStatus("2/3 Uploading full pack ZIP to 485-downloads...");
+        const { error: zipErr } = await db.storage
+          .from("485-downloads")
+          .upload(downloadPath, downloadFile, { contentType: "application/zip", upsert: false });
+        if (zipErr) throw new Error(`Vault ZIP Upload Failed: ${zipErr.message}`);
+
+        // Step C: Insert Product Metadata into Postgres
+        logStatus("3/3 Saving product record to Postgres...");
+        const { data: row, error: dbErr } = await db
+          .from("products")
+          .insert({
+            title,
+            category,
+            price_ngn: priceNgn,
+            preview_path: previewPath,
+            download_path: downloadPath
+          })
+          .select()
+          .single();
+
+        if (dbErr) throw new Error(`Database Insert Failed: ${dbErr.message}`);
+
+        logStatus(`SUCCESS!\nID: ${row.id}\nPreview: ${previewPath}\nVault ZIP: ${downloadPath}`);
+        e.target.reset();
+      } catch (err) {
+        logStatus(`ERROR: ${err.message}`);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    checkSession();
+  </script>
+</body>
+</html>
