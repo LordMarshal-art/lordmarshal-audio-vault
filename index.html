@@ -14,66 +14,34 @@
 
 <style>
 :root {
-  --bg:#09090b;
-  --surface:#111114;
-  --surface-2:#18181d;
-  --border:#27272f;
-  --border-hi:#3f3f4c;
-  --accent:#eab308;
-  --accent-bright:#facc15;
-  --accent-soft:rgba(234,179,8,.12);
-  --text:#fafafa;
-  --muted:#a1a1aa;
-  --warn:#f87171;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --bg:#09090b; --surface:#111114; --surface-2:#18181d;
+  --border:#27272f; --border-hi:#3f3f4c;
+  --accent:#eab308; --accent-bright:#facc15; --accent-soft:rgba(234,179,8,.12);
+  --text:#fafafa; --muted:#a1a1aa; --warn:#f87171; --ease:cubic-bezier(.22,1,.36,1);
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:"Inter",sans-serif;
-  line-height:1.5;
-  padding-bottom:88px;
-  font-variant-numeric:tabular-nums;
-  -webkit-font-smoothing:antialiased
+  background:var(--bg);color:var(--text);font-family:"Inter",sans-serif;line-height:1.5;
+  padding-bottom:88px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased
 }
-
 h1,h2,h3,.brand-name{font-family:"Plus Jakarta Sans",sans-serif}
 button,select,input,textarea{font:inherit}
 button,select{cursor:pointer;border:0}
 button:disabled{opacity:.45;cursor:not-allowed}
-
 .wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}
 
 /* HEADER */
-header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(9,9,11,.92);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border)
-}
-
+header{position:sticky;top:0;z-index:100;background:rgba(9,9,11,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-
 .brand{display:flex;align-items:center;gap:10px;background:none;color:var(--text)}
 .brand img{width:34px;height:34px;object-fit:contain}
 .brand-name{font-weight:800;font-size:16px;letter-spacing:-.3px}
 .brand-name span{color:var(--accent)}
-
-.nav-tabs{
-  display:flex;align-items:center;gap:4px;
-  background:var(--surface);padding:4px;border-radius:10px;border:1px solid var(--border)
-}
-
-.nav-tab{
-  padding:7px 14px;border-radius:7px;background:transparent;
-  color:var(--muted);font-size:13px;font-weight:600
-}
+.nav-tabs{display:flex;align-items:center;gap:4px;background:var(--surface);padding:4px;border-radius:10px;border:1px solid var(--border)}
+.nav-tab{padding:7px 14px;border-radius:7px;background:transparent;color:var(--muted);font-size:13px;font-weight:600}
 .nav-tab:hover{color:var(--text)}
 .nav-tab.active{background:var(--surface-2);color:var(--text)}
-
 .nav-actions{display:flex;gap:7px;align-items:center}
 
 .btn{
@@ -85,11 +53,7 @@ header{
 .btn.ghost{background:var(--surface);color:var(--text);border:1px solid var(--border)}
 .btn.ghost:hover:not(:disabled){border-color:var(--border-hi);background:var(--surface-2)}
 .btn.sm{padding:7px 12px;font-size:12px;border-radius:8px}
-
-.badge-count{
-  background:#09090b;color:var(--accent-bright);
-  font-size:11px;font-weight:800;padding:1px 6px;border-radius:99px
-}
+.badge-count{background:#09090b;color:var(--accent-bright);font-size:11px;font-weight:800;padding:1px 6px;border-radius:99px}
 
 /* VIEWS */
 .view{display:none;animation:fadeUp .3s var(--ease)}
@@ -97,55 +61,35 @@ header{
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* HERO */
-.hero{
-  padding:56px 0 40px;border-bottom:1px solid var(--border);
-  background:radial-gradient(circle at 50% -10%,rgba(234,179,8,.11),transparent 58%)
-}
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--border);background:radial-gradient(circle at 50% -10%,rgba(234,179,8,.11),transparent 58%)}
 .hero-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
-.pill-tag{
-  display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;
-  background:var(--accent-soft);border:1px solid rgba(234,179,8,.28);
-  color:var(--accent-bright);font-size:12px;font-weight:600
-}
+.pill-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;background:var(--accent-soft);border:1px solid rgba(234,179,8,.28);color:var(--accent-bright);font-size:12px;font-weight:600}
 .hero h1{font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-1.5px;max-width:720px}
 .hero p{color:var(--muted);font-size:15px;max-width:560px}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
 
-/* SECTIONS & FILTERS */
+/* SECTIONS */
 .sec{padding:44px 0}
 .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap}
 .sec-head h2,.sec-head h1{font-size:22px;letter-spacing:-.4px}
 .sec-sub{color:var(--muted);font-size:13px}
-
 .vibe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.vibe-card{
-  padding:16px;border-radius:12px;background:var(--surface);
-  border:1px solid var(--border);text-align:left;color:var(--text);transition:all .2s var(--ease)
-}
+.vibe-card{padding:16px;border-radius:12px;background:var(--surface);border:1px solid var(--border);text-align:left;color:var(--text);transition:all .2s var(--ease)}
 .vibe-card:hover{border-color:var(--accent);background:var(--surface-2);transform:translateY(-2px)}
 .vibe-card strong{display:block;font-size:15px}
 .vibe-card span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 
 .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{
-  padding:7px 13px;border-radius:99px;background:var(--surface);
-  border:1px solid var(--border);color:var(--muted);font-size:12px;font-weight:600
-}
+.chip{padding:7px 13px;border-radius:99px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:12px;font-weight:600}
 .chip.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-bright)}
-
 .select-group{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.search-input{
-  padding:7px 12px;border-radius:8px;background:var(--surface);
-  border:1px solid var(--border);color:var(--text);font-size:12px;min-width:190px;outline:none
+.search-input,select{
+  padding:7px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--border);
+  color:var(--text);font-size:12px;outline:none
 }
-.search-input:focus{border-color:var(--accent)}
-
-select{
-  padding:7px 12px;border-radius:8px;background:var(--surface);
-  border:1px solid var(--border);color:var(--text);font-size:12px;outline:none
-}
-select:focus{border-color:var(--accent)}
+.search-input{min-width:190px}
+.search-input:focus,select:focus{border-color:var(--accent)}
 
 /* BEAT GALLERY */
 .beat-list{
@@ -161,142 +105,80 @@ select:focus{border-color:var(--accent)}
 }
 .beat-card:hover{border-color:var(--border-hi);background:var(--surface-2);transform:translateY(-3px)}
 .beat-card.playing{border-color:var(--accent);background:rgba(234,179,8,.06)}
-
-.beat-art{
-  position:relative;width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;
-  background:var(--surface-2);margin-bottom:13px;display:grid;place-items:center;
-  color:var(--accent-bright);font-size:22px;font-weight:800
-}
+.beat-art{position:relative;width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:var(--surface-2);margin-bottom:13px;display:grid;place-items:center;color:var(--accent-bright);font-size:22px;font-weight:800}
 .beat-art img{width:100%;height:100%;object-fit:cover;display:block}
-.beat-art-play{
-  position:absolute;inset:0;display:grid;place-items:center;
-  background:rgba(0,0,0,.22);color:#fff;font-size:22px;transition:background .2s
-}
-.beat-art-play span{
-  width:52px;height:52px;display:grid;place-items:center;border-radius:50%;
-  background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(5px)
-}
+.beat-art-play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.22);color:#fff;font-size:22px;transition:background .2s}
+.beat-art-play span{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(5px)}
 .beat-card.playing .beat-art-play span{background:var(--accent);color:#09090b;border-color:var(--accent)}
-
 .beat-title{font-weight:800;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px}
 .beat-sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:17px}
 .beat-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;min-height:24px}
 .tag{padding:3px 8px;border-radius:6px;background:var(--bg);border:1px solid var(--border);color:var(--muted);font-size:10px}
-
-.beat-card-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;
-  margin-top:13px;padding-top:11px;border-top:1px solid var(--border)
-}
+.beat-card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;padding-top:11px;border-top:1px solid var(--border)}
 .beat-price{font-weight:800;font-size:13px;white-space:nowrap}
 
 /* SAMPLE PACKS */
 .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pack-card{
-  display:flex;flex-direction:column;padding:14px;border-radius:13px;
-  background:var(--surface);border:1px solid var(--border);transition:.2s
-}
+.pack-card{display:flex;flex-direction:column;padding:14px;border-radius:13px;background:var(--surface);border:1px solid var(--border);transition:.2s}
 .pack-card:hover{transform:translateY(-3px);border-color:var(--border-hi)}
 .pack-card.playing{border-color:var(--accent)}
-.pack-art{
-  position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;
-  background:var(--surface-2);margin-bottom:12px;display:grid;place-items:center;
-  color:var(--accent-bright);font-weight:800
-}
+.pack-art{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background:var(--surface-2);margin-bottom:12px;display:grid;place-items:center;color:var(--accent-bright);font-weight:800}
 .pack-art img{width:100%;height:100%;object-fit:cover}
-.pack-play{
-  position:absolute;bottom:10px;right:10px;width:36px;height:36px;border-radius:50%;
-  background:var(--accent);color:#09090b;font-weight:800
-}
+.pack-play{position:absolute;bottom:10px;right:10px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#09090b;font-weight:800}
 .pack-card h3{font-size:16px;margin-bottom:4px}
 .pack-card p{font-size:12px;color:var(--muted);flex:1}
-.pack-foot{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:14px;padding-top:12px;border-top:1px solid var(--border)
-}
+.pack-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
 
-/* FOOTER */
-footer{
-  margin-top:32px;padding:28px 0;border-top:1px solid var(--border);
-  color:var(--muted);font-size:12px;display:flex;justify-content:space-between;
-  gap:12px;flex-wrap:wrap
-}
+.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
+
+footer{margin-top:32px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 /* MODALS & DRAWER */
 .backdrop{position:fixed;inset:0;z-index:200;display:none;background:rgba(0,0,0,.78);backdrop-filter:blur(5px)}
 .backdrop.open{display:flex}
 .modal-wrap{align-items:center;justify-content:center;padding:16px;overflow-y:auto}
 .drawer-wrap{justify-content:flex-end}
-
-.modal{
-  width:min(540px,100%);max-height:90vh;overflow-y:auto;
-  background:var(--surface);border:1px solid var(--border-hi);border-radius:14px;
-  padding:22px;position:relative
-}
-.drawer{
-  width:min(420px,100%);height:100%;background:var(--surface);
-  border-left:1px solid var(--border-hi);padding:22px;display:flex;flex-direction:column
-}
+.modal{width:min(540px,100%);max-height:90vh;overflow-y:auto;background:var(--surface);border:1px solid var(--border-hi);border-radius:14px;padding:22px;position:relative}
+.drawer{width:min(420px,100%);height:100%;background:var(--surface);border-left:1px solid var(--border-hi);padding:22px;display:flex;flex-direction:column}
 .close-x{position:absolute;top:14px;right:16px;background:none;color:var(--muted);font-size:22px}
-
-.tier-opt{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-  padding:12px 14px;border-radius:10px;border:1px solid var(--border);
-  background:var(--bg);margin-bottom:8px;text-align:left;width:100%;color:var(--text)
-}
+.tier-opt{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);margin-bottom:8px;text-align:left;width:100%;color:var(--text)}
 .tier-opt.selected{border-color:var(--accent);background:var(--accent-soft)}
-.tier-opt.sold{opacity:.5;cursor:not-allowed}
+.tier-opt:disabled{opacity:.5;cursor:not-allowed}
 .tier-opt strong{display:block;font-size:13px}
 .tier-opt span{font-size:11px;color:var(--muted)}
 .tier-price{font-weight:700;font-size:14px;color:var(--accent-bright);white-space:nowrap}
-
 .cart-list{flex:1;overflow-y:auto;margin:14px 0}
-.cart-item{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-  padding:10px 0;border-bottom:1px solid var(--border);font-size:13px
-}
-
-.notice{
-  font-size:12px;padding:9px 11px;border-radius:8px;margin-bottom:10px;display:none;
-  background:var(--accent-soft);border:1px solid rgba(234,179,8,.35);color:var(--accent-bright)
-}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.notice{font-size:12px;padding:9px 11px;border-radius:8px;margin-bottom:10px;display:none;background:var(--accent-soft);border:1px solid rgba(234,179,8,.35);color:var(--accent-bright);white-space:pre-wrap}
 .notice.show{display:block}
-
+.notice.error{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.4);color:var(--warn)}
 .auth-field{margin:12px 0}
 .auth-field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
-.auth-field input,.auth-field textarea{
-  width:100%;padding:11px 12px;border-radius:8px;border:1px solid var(--border);
-  background:var(--bg);color:var(--text);outline:none
-}
+.auth-field input,.auth-field textarea{width:100%;padding:11px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);outline:none}
 .auth-field input:focus,.auth-field textarea:focus{border-color:var(--accent)}
-
 .auth-links{display:flex;justify-content:space-between;gap:10px;margin:12px 0;flex-wrap:wrap}
 .text-btn{background:none;color:var(--accent-bright);font-size:12px;font-weight:600}
-
 .account-box{padding:14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin:14px 0}
 .order-card{padding:12px 0;border-bottom:1px solid var(--border);font-size:12px}
 .order-card:last-child{border-bottom:0}
-.tab-strip{display:flex;gap:6px;margin:12px 0;border-bottom:1px solid var(--border);padding-bottom:8px;flex-wrap:wrap}
+.tab-strip{display:flex;gap:6px;margin:12px 0;border-bottom:1px solid var(--border);padding-bottom:8px;flex-wrap:wrap;align-items:center}
 .muted{color:var(--muted)}
 
-/* AUDIO PLAYER */
+/* PLAYER */
 .player-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:150;height:72px;
-  background:rgba(12,12,15,.96);backdrop-filter:blur(16px);
-  border-top:1px solid var(--border-hi);display:grid;
-  grid-template-columns:1fr 1.6fr 1fr;align-items:center;gap:14px;
+  background:rgba(12,12,15,.96);backdrop-filter:blur(16px);border-top:1px solid var(--border-hi);
+  display:grid;grid-template-columns:1fr 1.6fr 1fr;align-items:center;gap:14px;
   padding:0 max(16px,calc((100vw - 1160px)/2))
 }
 .p-track{display:flex;align-items:center;gap:10px;min-width:0}
-.p-art{
-  width:42px;height:42px;border-radius:7px;background:var(--surface-2);
-  border:1px solid var(--border);overflow:hidden;display:grid;place-items:center;
-  font-size:11px;font-weight:800;color:var(--accent-bright);flex-shrink:0
-}
+.p-art{width:42px;height:42px;border-radius:7px;background:var(--surface-2);border:1px solid var(--border);overflow:hidden;display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--accent-bright);flex-shrink:0}
 .p-art img{width:100%;height:100%;object-fit:cover}
 .p-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .p-sub{font-size:11px;color:var(--muted)}
 .p-center{display:flex;flex-direction:column;align-items:center;gap:4px}
 .p-play{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#09090b;font-size:12px;font-weight:800}
+.p-play:disabled{opacity:.35}
 .p-bar{display:flex;align-items:center;gap:8px;width:100%;max-width:420px;font-size:11px;color:var(--muted)}
 .p-bar input{flex:1;accent-color:var(--accent);height:4px}
 .p-vol{display:flex;justify-content:flex-end;align-items:center;gap:8px;color:var(--muted);font-size:11px}
@@ -307,7 +189,6 @@ footer{
   .pack-grid{grid-template-columns:repeat(2,1fr)}
   .beat-card{flex-basis:245px}
 }
-
 @media(max-width:560px){
   .nav-tabs{display:none}
   .nav{gap:5px}
@@ -329,24 +210,20 @@ footer{
 
 <header>
   <div class="wrap nav">
-    <button class="brand" type="button" onclick="go('home')">
+    <button class="brand" type="button" data-go="home">
       <img src="assets/file_00000000bc986246a092cfd3bf702d2a.png" alt="485 MUSIC">
       <span class="brand-name">485 <span>MUSIC</span></span>
     </button>
 
     <div class="nav-tabs">
-      <button class="nav-tab active" data-tab="home" onclick="go('home')">Home</button>
-      <button class="nav-tab" data-tab="beats" onclick="go('beats')">Beats</button>
-      <button class="nav-tab" data-tab="packs" onclick="go('packs')">Sample Packs</button>
+      <button class="nav-tab active" type="button" data-go="home">Home</button>
+      <button class="nav-tab" type="button" data-go="beats">Beats</button>
+      <button class="nav-tab" type="button" data-go="packs">Sample Packs</button>
     </div>
 
     <div class="nav-actions">
-      <button class="btn ghost sm" id="authButton" type="button" onclick="openAuth()">Sign In</button>
-      <button class="btn ghost sm" type="button" onclick="go('beats')">Beats</button>
-      <button class="btn ghost sm" type="button" onclick="go('packs')">Packs</button>
-      <button class="btn sm" type="button" onclick="openCart()">
-        Cart <span class="badge-count" id="cartBadge">0</span>
-      </button>
+      <button class="btn ghost sm" id="authButton" type="button">Sign In</button>
+      <button class="btn sm" id="cartButton" type="button">Cart <span class="badge-count" id="cartBadge">0</span></button>
     </div>
   </div>
 </header>
@@ -358,40 +235,22 @@ footer{
     <div class="wrap hero-grid">
       <span class="pill-tag">485 MUSIC · Independent Sound Marketplace</span>
       <h1>Beats &amp; sound kits built for real records.</h1>
-      <p>Audition instrumentals, pick your licence tier, or grab studio drum kits from 485 MUSIC and approved producers.</p>
+      <p>Audition instrumentals, pick your licence, or grab studio drum kits from 485 MUSIC and approved producers.</p>
       <div class="hero-cta">
-        <button class="btn" type="button" onclick="go('beats')">Browse Beats</button>
-        <button class="btn ghost" type="button" onclick="go('packs')">Explore Sample Packs</button>
+        <button class="btn" type="button" data-go="beats">Browse Beats</button>
+        <button class="btn ghost" type="button" data-go="packs">Explore Sample Packs</button>
       </div>
     </div>
   </div>
 
   <div class="sec">
     <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <h2>Browse by Vibe</h2>
-          <p class="sec-sub">Jump straight into a sound or pack style</p>
-        </div>
-      </div>
-
+      <div class="sec-head"><div><h2>Browse by Vibe</h2><p class="sec-sub">Jump straight into a sound or pack style</p></div></div>
       <div class="vibe-grid">
-        <button class="vibe-card" type="button" onclick="openFiltered('beats','Trap')">
-          <strong>Trap &amp; 808s</strong>
-          <span>Hard-hitting drums &amp; dark bounce</span>
-        </button>
-        <button class="vibe-card" type="button" onclick="openFiltered('beats','Afrobeats')">
-          <strong>Afrobeats</strong>
-          <span>Grooves, percussion &amp; melodies</span>
-        </button>
-        <button class="vibe-card" type="button" onclick="openFiltered('beats','Amapiano')">
-          <strong>Amapiano</strong>
-          <span>Log drums &amp; deep chords</span>
-        </button>
-        <button class="vibe-card" type="button" onclick="openFiltered('packs','all')">
-          <strong>Drum &amp; Sample Packs</strong>
-          <span>WAV kits &amp; studio vaults</span>
-        </button>
+        <button class="vibe-card" type="button" data-vibe="beats" data-genre="Trap"><strong>Trap &amp; 808s</strong><span>Hard-hitting drums &amp; dark bounce</span></button>
+        <button class="vibe-card" type="button" data-vibe="beats" data-genre="Afrobeats"><strong>Afrobeats</strong><span>Grooves, percussion &amp; melodies</span></button>
+        <button class="vibe-card" type="button" data-vibe="beats" data-genre="Amapiano"><strong>Amapiano</strong><span>Log drums &amp; deep chords</span></button>
+        <button class="vibe-card" type="button" data-vibe="packs"><strong>Drum &amp; Sample Packs</strong><span>WAV kits &amp; studio vaults</span></button>
       </div>
     </div>
   </div>
@@ -399,11 +258,8 @@ footer{
   <div class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <div>
-          <h2>Trending Beats</h2>
-          <p class="sec-sub" id="statusText">Loading catalogue...</p>
-        </div>
-        <button class="btn ghost sm" type="button" onclick="go('beats')">All Beats →</button>
+        <div><h2>Trending Beats</h2><p class="sec-sub" id="statusText">Loading catalogue...</p></div>
+        <button class="btn ghost sm" type="button" data-go="beats">All Beats →</button>
       </div>
       <div class="beat-list" id="homeBeatsList"></div>
     </div>
@@ -412,11 +268,8 @@ footer{
   <div class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <div>
-          <h2>Sample Packs &amp; Kits</h2>
-          <p class="sec-sub">Ready-to-drop drums and production packs</p>
-        </div>
-        <button class="btn ghost sm" type="button" onclick="go('packs')">All Packs →</button>
+        <div><h2>Sample Packs &amp; Kits</h2><p class="sec-sub">Ready-to-drop drums and production packs</p></div>
+        <button class="btn ghost sm" type="button" data-go="packs">All Packs →</button>
       </div>
       <div class="pack-grid" id="homePacksGrid"></div>
     </div>
@@ -427,36 +280,28 @@ footer{
   <div class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <div>
-          <h1>Beats &amp; Instrumentals</h1>
-          <p class="sec-sub">Search, filter by genre, tempo, or key and select a licence.</p>
-        </div>
+        <div><h1>Beats &amp; Instrumentals</h1><p class="sec-sub">Search, filter by genre, tempo or key, then choose a licence.</p></div>
       </div>
-
       <div class="toolbar">
         <div class="chips" id="genreChips">
-          <button class="chip active" type="button" data-g="all" onclick="pickGenre('all',this)">All</button>
-          <button class="chip" type="button" data-g="Trap" onclick="pickGenre('Trap',this)">Trap</button>
-          <button class="chip" type="button" data-g="Afrobeats" onclick="pickGenre('Afrobeats',this)">Afrobeats</button>
-          <button class="chip" type="button" data-g="Amapiano" onclick="pickGenre('Amapiano',this)">Amapiano</button>
-          <button class="chip" type="button" data-g="Boom Bap" onclick="pickGenre('Boom Bap',this)">Boom Bap</button>
+          <button class="chip active" type="button" data-g="all">All</button>
+          <button class="chip" type="button" data-g="Trap">Trap</button>
+          <button class="chip" type="button" data-g="Afrobeats">Afrobeats</button>
+          <button class="chip" type="button" data-g="Amapiano">Amapiano</button>
+          <button class="chip" type="button" data-g="Boom Bap">Boom Bap</button>
         </div>
-
         <div class="select-group">
-          <input class="search-input" id="beatSearch" type="search" placeholder="Search beats or producers..." oninput="renderBeats()">
-          <select id="bpmSelect" onchange="renderBeats()">
+          <input class="search-input" id="beatSearch" type="search" placeholder="Search beats or producers...">
+          <select id="bpmSelect">
             <option value="all">All BPM</option>
-            <option value="slow">&lt; 95 BPM</option>
+            <option value="slow">Under 95 BPM</option>
             <option value="mid">95–115 BPM</option>
             <option value="up">116–135 BPM</option>
-            <option value="fast">135+ BPM</option>
+            <option value="fast">Over 135 BPM</option>
           </select>
-          <select id="keySelect" onchange="renderBeats()">
-            <option value="all">All Keys</option>
-          </select>
+          <select id="keySelect"><option value="all">All Keys</option></select>
         </div>
       </div>
-
       <div class="beat-list" id="allBeatsList"></div>
     </div>
   </div>
@@ -466,11 +311,8 @@ footer{
   <div class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <div>
-          <h1>Sample Packs &amp; Kits</h1>
-          <p class="sec-sub">Drum kits, loops, and studio bundles</p>
-        </div>
-        <input class="search-input" id="packSearch" type="search" placeholder="Search sample packs..." oninput="renderPacks()">
+        <div><h1>Sample Packs &amp; Kits</h1><p class="sec-sub">Drum kits, loops and studio bundles</p></div>
+        <input class="search-input" id="packSearch" type="search" placeholder="Search sample packs...">
       </div>
       <div class="pack-grid" id="allPacksGrid"></div>
     </div>
@@ -481,26 +323,24 @@ footer{
 
 <footer class="wrap">
   <div><strong style="color:var(--accent-bright)">485 MUSIC</strong> · Black &amp; Gold Digital Sound Marketplace</div>
-  <div>NGN Checkout via Paystack · Private Digital Delivery</div>
+  <div>NGN checkout via Paystack · Private digital delivery</div>
 </footer>
 
 <!-- LICENCE MODAL -->
-<div class="backdrop modal-wrap" id="licenseModal" onclick="if(event.target.id==='licenseModal')closeLicense()">
+<div class="backdrop modal-wrap" id="licenseModal">
   <div class="modal">
-    <button class="close-x" type="button" onclick="closeLicense()">×</button>
-    <h2 id="licTitle" style="font-size:20px;margin-bottom:2px">Beat Title</h2>
+    <button class="close-x" type="button" id="licClose" aria-label="Close">×</button>
+    <h2 id="licTitle" style="font-size:20px;margin-bottom:2px">Beat</h2>
     <p id="licMeta" class="sec-sub" style="margin-bottom:16px"></p>
     <div id="licOptions"></div>
-    <button class="btn" id="licConfirmBtn" type="button" style="width:100%;margin-top:8px" onclick="addSelectedLicense()" disabled>
-      Select a licence
-    </button>
+    <button class="btn" id="licConfirmBtn" type="button" style="width:100%;margin-top:8px" disabled>Select a licence</button>
   </div>
 </div>
 
 <!-- AUTH & ACCOUNT MODAL -->
-<div class="backdrop modal-wrap" id="authModal" onclick="if(event.target.id==='authModal')closeAuth()">
+<div class="backdrop modal-wrap" id="authModal">
   <div class="modal">
-    <button class="close-x" type="button" onclick="closeAuth()">×</button>
+    <button class="close-x" type="button" id="authClose" aria-label="Close">×</button>
 
     <div id="authFormPanel">
       <h2 id="authHeading" style="font-size:21px">Welcome back</h2>
@@ -528,8 +368,8 @@ footer{
       </form>
 
       <div class="auth-links">
-        <button class="text-btn" type="button" onclick="setAuthMode('signup')">Create account</button>
-        <button class="text-btn" type="button" onclick="setAuthMode('reset')">Forgot password?</button>
+        <button class="text-btn" type="button" data-auth-mode="signup">Create account</button>
+        <button class="text-btn" type="button" data-auth-mode="reset">Forgot password?</button>
       </div>
     </div>
 
@@ -542,18 +382,17 @@ footer{
       </div>
 
       <div class="tab-strip">
-        <button class="chip active" type="button" id="acctTabOrders" onclick="switchAccountTab('orders')">Purchases &amp; Downloads</button>
-        <button class="chip" type="button" id="acctTabVendor" onclick="switchAccountTab('vendor')">Vendor Studio</button>
-        <button class="btn ghost sm" type="button" onclick="signOutUser()">Sign Out</button>
+        <button class="chip active" type="button" id="acctTabOrders">Purchases &amp; Downloads</button>
+        <button class="chip" type="button" id="acctTabVendor">Vendor Studio</button>
+        <button class="btn ghost sm" type="button" id="signOutBtn">Sign Out</button>
       </div>
 
       <div id="acctOrdersSection">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
           <strong style="font-size:14px">Your Downloads</strong>
-          <button class="btn ghost sm" type="button" onclick="loadMyOrders()">Refresh</button>
+          <button class="btn ghost sm" type="button" id="refreshOrdersBtn">Refresh</button>
         </div>
-        <div id="myEntitlements" class="order-card muted">Loading entitlements...</div>
-
+        <div id="myEntitlements" class="muted" style="font-size:12px">Loading downloads...</div>
         <strong style="display:block;font-size:14px;margin:16px 0 6px">Purchase History</strong>
         <div id="purchaseHistory" class="muted" style="font-size:12px">Loading purchases...</div>
       </div>
@@ -561,33 +400,14 @@ footer{
       <div id="acctVendorSection" hidden>
         <div class="notice" id="vendorNotice"></div>
         <div id="vendorDashboardBox" class="account-box muted" style="font-size:12px">Loading vendor status...</div>
-
         <form id="vendorApplyForm" hidden>
-          <strong style="display:block;font-size:14px;margin-bottom:6px">Apply to Become a 485 MUSIC Vendor</strong>
-          <div class="auth-field">
-            <label for="vendorStageName">Producer / Brand Name *</label>
-            <input id="vendorStageName" type="text" required placeholder="e.g. SoundLab Beats">
-          </div>
-          <div class="auth-field">
-            <label for="vendorGenres">Primary Genres</label>
-            <input id="vendorGenres" type="text" placeholder="Afrobeats, Trap, Amapiano">
-          </div>
-          <div class="auth-field">
-            <label for="vendorBio">Bio / Catalogue Notes</label>
-            <textarea id="vendorBio" rows="2" placeholder="Tell us about your production style and catalogue..."></textarea>
-          </div>
-          <div class="auth-field">
-            <label for="vendorBank">Bank Name (for manual admin payouts)</label>
-            <input id="vendorBank" type="text" placeholder="e.g. GTBank / Access Bank">
-          </div>
-          <div class="auth-field">
-            <label for="vendorAccountNum">Account Number</label>
-            <input id="vendorAccountNum" type="text" placeholder="0123456789">
-          </div>
-          <div class="auth-field">
-            <label for="vendorAccountName">Account Name</label>
-            <input id="vendorAccountName" type="text" placeholder="Legal account holder name">
-          </div>
+          <strong style="display:block;font-size:14px;margin-bottom:6px">Apply to become a 485 MUSIC vendor</strong>
+          <div class="auth-field"><label for="vendorStageName">Producer / brand name *</label><input id="vendorStageName" type="text" required placeholder="e.g. SoundLab Beats"></div>
+          <div class="auth-field"><label for="vendorGenres">Primary genres</label><input id="vendorGenres" type="text" placeholder="Afrobeats, Trap, Amapiano"></div>
+          <div class="auth-field"><label for="vendorBio">Bio / catalogue notes</label><textarea id="vendorBio" rows="2" placeholder="Tell us about your production style."></textarea></div>
+          <div class="auth-field"><label for="vendorBank">Bank name (for manual payouts)</label><input id="vendorBank" type="text" placeholder="e.g. GTBank"></div>
+          <div class="auth-field"><label for="vendorAccountNum">Account number</label><input id="vendorAccountNum" type="text" inputmode="numeric" placeholder="0123456789"></div>
+          <div class="auth-field"><label for="vendorAccountName">Account name</label><input id="vendorAccountName" type="text" placeholder="Legal account holder name"></div>
           <button class="btn" type="submit" id="vendorApplyBtn" style="width:100%">Submit Vendor Application</button>
         </form>
       </div>
@@ -596,23 +416,19 @@ footer{
 </div>
 
 <!-- CART DRAWER -->
-<div class="backdrop drawer-wrap" id="cartDrawer" onclick="if(event.target.id==='cartDrawer')closeCart()">
+<div class="backdrop drawer-wrap" id="cartDrawer">
   <div class="drawer">
     <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border)">
       <h2 style="font-size:18px">Your Cart</h2>
-      <button type="button" onclick="closeCart()" style="background:none;color:var(--muted);font-size:22px">×</button>
+      <button type="button" id="cartClose" aria-label="Close" style="background:none;color:var(--muted);font-size:22px">×</button>
     </div>
-
     <div class="cart-list" id="cartItems"></div>
-
     <div style="border-top:1px solid var(--border);padding-top:14px">
       <div id="cartTotal" style="font-weight:800;font-size:17px;text-align:right;margin-bottom:10px"></div>
       <div class="notice" id="cartNotice"></div>
-      <button class="btn" id="checkoutBtn" type="button" style="width:100%" onclick="continueToCheckout()">
-        Pay with Paystack (NGN)
-      </button>
+      <button class="btn" id="checkoutBtn" type="button" style="width:100%">Pay with Paystack (NGN)</button>
       <p class="muted" style="font-size:10px;margin-top:9px;text-align:center">
-        Verified server-side via Supabase Edge Functions. Digital downloads unlock automatically after payment verification.
+        Payment is verified on the server. Downloads unlock after verification.
       </p>
     </div>
   </div>
@@ -623,11 +439,10 @@ footer{
   <div class="p-track">
     <div class="p-art" id="pArt">485</div>
     <div style="min-width:0">
-      <div class="p-title" id="pTitle">Select a beat or pack to preview</div>
+      <div class="p-title" id="pTitle">Select a beat to preview</div>
       <div class="p-sub" id="pSub">485 MUSIC</div>
     </div>
   </div>
-
   <div class="p-center">
     <button class="p-play" id="pPlay" type="button" disabled>▶</button>
     <div class="p-bar">
@@ -636,7 +451,6 @@ footer{
       <span id="pDur">0:00</span>
     </div>
   </div>
-
   <div class="p-vol">
     <span>VOL</span>
     <input id="pVol" type="range" min="0" max="1" step="0.01" value="0.85">
@@ -649,14 +463,22 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SUPABASE_URL = "https://jrupwyaggntgsulpaqyq.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_JoplUxXVcfBfb2dDltRyaQ_qk6b01jy";
 const PREVIEW_BUCKET = "485-previews";
-const CART_STORAGE_KEY = "485_music_cart_v1";
+const CART_KEY = "485_music_cart_v2";
+const RETURN_URL = "https://lordmarshal-art.github.io/lordmarshal-audio-vault/";
+const LICENCE_NAMES = {
+  mp3_lease: "MP3 Lease",
+  wav_lease: "WAV Lease",
+  trackout_lease: "Trackout Lease",
+  exclusive: "Exclusive Rights"
+};
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-let items = [];
+let products = [];
 let cart = [];
 let genreFilter = "all";
-let activeBeat = null;
+let activeProduct = null;
+let activeTiers = [];
 let selectedTier = null;
 let currentUser = null;
 let authMode = "signin";
@@ -668,137 +490,106 @@ audio.preload = "none";
 audio.volume = 0.85;
 
 const $ = id => document.getElementById(id);
-const fmtNgn = n => {
-  const val = Number(n) || 0;
-  return val === 0 ? "FREE" : "₦" + val.toLocaleString("en-NG");
+const fmtNgn = naira => {
+  const n = Number(naira) || 0;
+  return n === 0 ? "FREE" : "₦" + n.toLocaleString("en-NG");
 };
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
 }[c]));
 
-function loadCartStorage(){
+/* ---------- Cart storage ---------- */
+function loadCart() {
   try {
-    const raw = localStorage.getItem(CART_STORAGE_KEY);
-    const parsed = raw ? JSON.parse(raw) : [];
+    const parsed = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
     cart = Array.isArray(parsed) ? parsed : [];
   } catch { cart = []; }
 }
-function saveCartStorage(){
-  try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); } catch {}
+function saveCart() {
+  try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch {}
 }
 
-const isBeat = p => {
-  const t = (p.product_type || "").toLowerCase();
-  const c = (p.category || "").toLowerCase();
-  const title = (p.title || "").toLowerCase();
-  if (c.includes("kit") || c.includes("pack") || c.includes("vault") || title.includes("kit") || title.includes("pack")) return false;
-  return t === "beat" || c.includes("beat") || c.includes("instrumental") || Boolean(p.bpm);
-};
+/* ---------- Product classification ---------- */
+const isBeat = p => p.product_type === "beat";
 
-/* SIGNED PREVIEW & ARTWORK FROM 485-previews */
-async function signedPreviewUrl(path){
+/* ---------- Signed preview and artwork URLs (485-previews) ---------- */
+async function signedPreviewUrl(path) {
   if (!path) return "";
-  if (/^https?:\/\//i.test(path)) return path;
   const cached = signedUrlCache.get(path);
   if (cached && cached.expiresAt > Date.now() + 60000) return cached.url;
-
-  const { data, error } = await supabase.storage
-    .from(PREVIEW_BUCKET)
-    .createSignedUrl(path, 3600);
-
-  if (error || !data?.signedUrl) {
-    console.warn("485-previews signed URL error:", error?.message || "missing url");
-    return "";
-  }
+  const { data, error } = await supabase.storage.from(PREVIEW_BUCKET).createSignedUrl(path, 3600);
+  if (error || !data?.signedUrl) return "";
   signedUrlCache.set(path, { url: data.signedUrl, expiresAt: Date.now() + 3600000 });
   return data.signedUrl;
 }
 
-/* NAVIGATION */
-window.go = view => {
+/* ---------- Navigation ---------- */
+function go(view) {
   document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-  $(`view-${view}`)?.classList.add("active");
-  document.querySelectorAll(".nav-tab").forEach(t => t.classList.toggle("active", t.dataset.tab === view));
+  $("view-" + view)?.classList.add("active");
+  document.querySelectorAll(".nav-tab").forEach(t => t.classList.toggle("active", t.dataset.go === view));
   window.scrollTo({ top: 0, behavior: "smooth" });
-};
+}
 
-window.openFiltered = (view, genre) => {
-  go(view);
-  if (view === "beats" && genre !== "all") {
-    const chip = [...document.querySelectorAll("#genreChips .chip")].find(c => c.dataset.g.toLowerCase() === genre.toLowerCase());
-    window.pickGenre(genre, chip || null);
-  }
-};
-
-window.pickGenre = (genre, el) => {
+/* ---------- Genre filter ---------- */
+function setGenre(genre) {
   genreFilter = genre;
-  document.querySelectorAll("#genreChips .chip").forEach(c => c.classList.remove("active"));
-  if (el) el.classList.add("active");
-  window.renderBeats();
-};
+  document.querySelectorAll("#genreChips .chip").forEach(c => c.classList.toggle("active", c.dataset.g === genre));
+  renderBeats();
+}
 
-/* CARDS */
-function beatRowHTML(p){
-  const id = esc(String(p.id));
+/* ---------- Cards ---------- */
+function beatCardHTML(p) {
+  const id = esc(p.id);
   const title = esc(p.title);
-  const producer = esc(p.producer_name || (p.is_platform_owned === false ? "485 Vendor" : "LordMarshal"));
-  const isNow = playingId === String(p.id) && !audio.paused;
-  const metaBits = [p.bpm ? `${p.bpm} BPM` : null, p.musical_key || null, p.genre || p.category].filter(Boolean);
-
+  const isNow = playingId === p.id && !audio.paused;
+  const tags = [p.bpm ? `${p.bpm} BPM` : null, p.musical_key, p.genre || p.category].filter(Boolean);
   return `
     <article class="beat-card ${isNow ? "playing" : ""}" data-row="${id}">
       <div class="beat-art">
-        ${p.cover_url ? `<img src="${esc(p.cover_url)}" alt="${title} artwork" loading="lazy">` : "485 MUSIC"}
-        ${p.preview_url ? `
-          <button class="beat-art-play thumb-play" type="button" onclick="togglePlay('${id}')" aria-label="Play ${title}">
-            <span>${isNow ? "Ⅱ" : "▶"}</span>
-          </button>` : ""}
+        ${p.cover_url ? `<img src="${esc(p.cover_url)}" alt="${title} artwork" loading="lazy">` : "485"}
+        ${p.preview_url ? `<button class="beat-art-play" type="button" data-play="${id}" aria-label="Play ${title}"><span>${isNow ? "Ⅱ" : "▶"}</span></button>` : ""}
       </div>
       <div class="beat-title">${title}</div>
-      <div class="beat-sub">${producer} · ${esc(p.description || "Studio instrumental")}</div>
-      <div class="beat-tags">${metaBits.map(m => `<span class="tag">${esc(m)}</span>`).join("")}</div>
+      <div class="beat-sub">${esc(p.producer_name)} · ${esc(p.mood || "Studio instrumental")}</div>
+      <div class="beat-tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
       <div class="beat-card-foot">
-        <span class="beat-price">From ${fmtNgn(p.price_ngn)}</span>
-        <button class="btn sm" type="button" onclick="openLicense('${id}')">License</button>
+        <span class="beat-price">From ${fmtNgn(p.from_ngn)}</span>
+        <button class="btn sm" type="button" data-license="${id}">Licence</button>
       </div>
-    </article>
-  `;
+    </article>`;
 }
 
-function packCardHTML(p){
-  const id = esc(String(p.id));
+function packCardHTML(p) {
+  const id = esc(p.id);
   const title = esc(p.title);
-  const producer = esc(p.producer_name || (p.is_platform_owned === false ? "485 Vendor" : "LordMarshal"));
-  const isNow = playingId === String(p.id) && !audio.paused;
-
+  const isNow = playingId === p.id && !audio.paused;
   return `
     <article class="pack-card ${isNow ? "playing" : ""}" data-row="${id}">
       <div class="pack-art">
-        ${p.cover_url ? `<img src="${esc(p.cover_url)}" alt="${title}" loading="lazy">` : "485 MUSIC"}
-        ${p.preview_url ? `<button class="pack-play" type="button" onclick="togglePlay('${id}')">${isNow ? "Ⅱ" : "▶"}</button>` : ""}
+        ${p.cover_url ? `<img src="${esc(p.cover_url)}" alt="${title}" loading="lazy">` : "485"}
+        ${p.preview_url ? `<button class="pack-play" type="button" data-play="${id}" aria-label="Play ${title}">${isNow ? "Ⅱ" : "▶"}</button>` : ""}
       </div>
-      <span class="tag" style="align-self:flex-start;margin-bottom:6px">${esc(p.category)} · ${producer}</span>
+      <span class="tag" style="align-self:flex-start;margin-bottom:6px">${esc(p.category)} · ${esc(p.producer_name)}</span>
       <h3>${title}</h3>
       <p>${esc(p.description || "Studio sound kit")}</p>
       <div class="pack-foot">
         <strong style="font-size:15px">${fmtNgn(p.price_ngn)}</strong>
-        <button class="btn sm" type="button" onclick="addPack('${id}')">Add to Cart</button>
+        <button class="btn sm" type="button" data-add-pack="${id}">Add to Cart</button>
       </div>
-    </article>
-  `;
+    </article>`;
 }
 
-window.renderBeats = () => {
+function renderBeats() {
   const bpm = $("bpmSelect").value;
   const key = $("keySelect").value;
-  const q = ($("beatSearch")?.value || "").trim().toLowerCase();
+  const q = $("beatSearch").value.trim().toLowerCase();
 
-  const list = items.filter(p => {
+  const list = products.filter(p => {
     if (!isBeat(p)) return false;
     if (genreFilter !== "all" && ![p.genre, p.mood, p.category].join(" ").toLowerCase().includes(genreFilter.toLowerCase())) return false;
     if (key !== "all" && p.musical_key !== key) return false;
     if (q && ![p.title, p.description, p.genre, p.mood, p.producer_name].join(" ").toLowerCase().includes(q)) return false;
-
     const n = Number(p.bpm) || 0;
     if (bpm === "slow" && (n === 0 || n >= 95)) return false;
     if (bpm === "mid" && (n < 95 || n > 115)) return false;
@@ -808,140 +599,130 @@ window.renderBeats = () => {
   });
 
   $("allBeatsList").innerHTML = list.length
-    ? list.map(beatRowHTML).join("")
-    : `<p class="sec-sub" style="padding:24px;text-align:center">No beats match this filter.</p>`;
-};
+    ? list.map(beatCardHTML).join("")
+    : `<p class="empty">No beats match these filters.</p>`;
+}
 
-window.renderPacks = () => {
-  const q = ($("packSearch")?.value || "").trim().toLowerCase();
-  const packs = items.filter(p => !isBeat(p)).filter(p => {
-    if (!q) return true;
-    return [p.title, p.description, p.category, p.producer_name].join(" ").toLowerCase().includes(q);
-  });
-
+function renderPacks() {
+  const q = $("packSearch").value.trim().toLowerCase();
+  const packs = products.filter(p => !isBeat(p)).filter(p =>
+    !q || [p.title, p.description, p.category, p.producer_name].join(" ").toLowerCase().includes(q));
   $("allPacksGrid").innerHTML = packs.length
     ? packs.map(packCardHTML).join("")
-    : `<p class="sec-sub">No sample packs match your search.</p>`;
-};
+    : `<p class="empty">No sample packs match your search.</p>`;
+}
 
-function renderAll(){
-  const beats = items.filter(isBeat);
-  const packs = items.filter(p => !isBeat(p));
-
+function renderAll() {
+  const beats = products.filter(isBeat);
+  const packs = products.filter(p => !isBeat(p));
   $("statusText").textContent = `${beats.length} beat${beats.length === 1 ? "" : "s"} · ${packs.length} pack${packs.length === 1 ? "" : "s"} live`;
-  $("homeBeatsList").innerHTML = beats.slice(0, 6).map(beatRowHTML).join("") || `<p class="sec-sub">Approve beats in Upload Studio to feature them here.</p>`;
-  $("homePacksGrid").innerHTML = packs.slice(0, 3).map(packCardHTML).join("") || `<p class="sec-sub">Sample packs appear here once approved.</p>`;
+  $("homeBeatsList").innerHTML = beats.slice(0, 6).map(beatCardHTML).join("") || `<p class="empty">Approved beats will appear here.</p>`;
+  $("homePacksGrid").innerHTML = packs.slice(0, 3).map(packCardHTML).join("") || `<p class="empty">Approved sample packs will appear here.</p>`;
 
   const keys = [...new Set(beats.map(b => b.musical_key).filter(Boolean))].sort();
   $("keySelect").innerHTML = `<option value="all">All Keys</option>` + keys.map(k => `<option value="${esc(k)}">${esc(k)}</option>`).join("");
 
-  window.renderBeats();
-  window.renderPacks();
+  renderBeats();
+  renderPacks();
 }
 
-/* LICENCES */
-const licenceNames = {
-  mp3_lease: "MP3 Lease",
-  wav_lease: "WAV Lease",
-  trackout_lease: "Trackout Lease",
-  exclusive: "Exclusive Rights"
-};
-
-window.openLicense = async id => {
-  const beat = items.find(x => String(x.id) === String(id));
+/* ---------- Licence picker (server-side availability is re-checked at checkout) ---------- */
+async function openLicense(id) {
+  const beat = products.find(p => p.id === id);
   if (!beat) return;
-
-  activeBeat = beat;
+  activeProduct = beat;
   selectedTier = null;
+
   $("licTitle").textContent = beat.title;
   $("licMeta").textContent = [beat.bpm ? `${beat.bpm} BPM` : null, beat.musical_key, beat.genre, beat.producer_name].filter(Boolean).join(" · ");
-  $("licOptions").innerHTML = `<p class="sec-sub">Loading available licences...</p>`;
+  $("licOptions").innerHTML = `<p class="sec-sub">Loading licences...</p>`;
   $("licConfirmBtn").disabled = true;
-  $("licConfirmBtn").textContent = "Loading licences...";
+  $("licConfirmBtn").textContent = "Loading...";
   $("licenseModal").classList.add("open");
 
   const { data, error } = await supabase
     .from("product_licenses")
-    .select("id,product_id,license_type,price_kobo,currency,is_active,exclusive_sold_at")
+    .select("id,license_type,price_kobo,is_active,max_sales,sold_count")
     .eq("product_id", beat.id)
-    .eq("is_active", true)
     .order("price_kobo", { ascending: true });
 
-  if (error || !data?.length) {
-    $("licOptions").innerHTML = `<p class="sec-sub">No active licences are available for this beat yet.</p>`;
+  if (error) {
+    $("licOptions").innerHTML = `<p class="sec-sub">Licences could not be loaded. ${esc(error.message)}</p>`;
     $("licConfirmBtn").textContent = "Unavailable";
     return;
   }
 
-  window.availableTiers = data.map(row => {
-    const soldExclusive = row.license_type === "exclusive" && Boolean(row.exclusive_sold_at);
+  activeTiers = (data || []).map(row => {
+    const soldOut = row.max_sales !== null && row.sold_count >= row.max_sales;
+    const withdrawn = !row.is_active;
     return {
       id: row.id,
-      product_id: row.product_id,
-      license_type: row.license_type,
-      name: licenceNames[row.license_type] || row.license_type,
+      name: LICENCE_NAMES[row.license_type] || row.license_type,
       price_ngn: Number(row.price_kobo || 0) / 100,
-      currency: row.currency || "NGN",
-      sold: soldExclusive
+      unavailable: soldOut || withdrawn,
+      reason: withdrawn ? "No longer available" : (soldOut ? "Sold" : "Official 485 MUSIC licence")
     };
   });
 
-  const firstAvailable = window.availableTiers.find(t => !t.sold) || null;
-  selectedTier = firstAvailable;
+  const first = activeTiers.find(t => !t.unavailable) || null;
+  $("licOptions").innerHTML = activeTiers.length
+    ? activeTiers.map((t, i) => `
+      <button type="button" class="tier-opt ${first && t.id === first.id ? "selected" : ""}" data-tier="${i}" ${t.unavailable ? "disabled" : ""}>
+        <div><strong>${esc(t.name)}${t.unavailable ? " (SOLD)" : ""}</strong><span>${esc(t.reason)}</span></div>
+        <div class="tier-price">${t.unavailable ? "—" : fmtNgn(t.price_ngn)}</div>
+      </button>`).join("")
+    : `<p class="sec-sub">No licences are available for this beat yet.</p>`;
 
-  $("licOptions").innerHTML = window.availableTiers.map((tier, idx) => `
-    <button type="button" class="tier-opt ${tier.sold ? "sold" : (firstAvailable && tier.id === firstAvailable.id ? "selected" : "")}"
-      ${tier.sold ? "disabled" : `onclick="selectLicenseTier(${idx})"`}>
-      <div>
-        <strong>${esc(tier.name)} ${tier.sold ? "(SOLD)" : ""}</strong>
-        <span>${tier.sold ? "Exclusive licence already claimed" : "Official 485 MUSIC licence"}</span>
-      </div>
-      <div class="tier-price">${tier.sold ? "SOLD" : fmtNgn(tier.price_ngn)}</div>
-    </button>
-  `).join("");
+  selectedTier = first;
+  updateLicenceButton();
+}
 
+function updateLicenceButton() {
   if (selectedTier) {
     $("licConfirmBtn").disabled = false;
     $("licConfirmBtn").textContent = `Add ${selectedTier.name} — ${fmtNgn(selectedTier.price_ngn)}`;
   } else {
     $("licConfirmBtn").disabled = true;
-    $("licConfirmBtn").textContent = "All licences unavailable";
+    $("licConfirmBtn").textContent = "No licence available";
   }
-};
+}
 
-window.selectLicenseTier = index => {
-  const tier = window.availableTiers?.[index];
-  if (!tier || tier.sold) return;
+function selectTier(index) {
+  const tier = activeTiers[index];
+  if (!tier || tier.unavailable) return;
   selectedTier = tier;
   document.querySelectorAll(".tier-opt").forEach((el, i) => el.classList.toggle("selected", i === index));
-  $("licConfirmBtn").textContent = `Add ${tier.name} — ${fmtNgn(tier.price_ngn)}`;
-};
+  updateLicenceButton();
+}
 
-window.closeLicense = () => $("licenseModal").classList.remove("open");
+function closeLicense() { $("licenseModal").classList.remove("open"); }
 
-window.addSelectedLicense = () => {
-  if (!activeBeat || !selectedTier?.id || selectedTier.sold) return;
-  const key = `${activeBeat.id}:${selectedTier.id}`;
-  if (!cart.some(c => c.key === key)) {
+function addSelectedLicence() {
+  if (!activeProduct || !selectedTier) return;
+  const key = `${activeProduct.id}:${selectedTier.id}`;
+  if (cart.some(c => c.key === key)) {
+    showCartNotice("This licence is already in your cart.");
+  } else {
+    if (cart.some(c => c.product_id === activeProduct.id)) {
+      return showCartNotice("Only one licence per beat per order. Remove the existing licence to change it.", true);
+    }
     cart.push({
       key,
-      product_id: activeBeat.id,
+      product_id: activeProduct.id,
       license_id: selectedTier.id,
-      product_type: "beat",
-      title: activeBeat.title,
+      title: activeProduct.title,
       sub: selectedTier.name,
-      price: selectedTier.price_ngn,
-      currency: selectedTier.currency
+      price_ngn: selectedTier.price_ngn
     });
-    saveCartStorage();
+    saveCart();
   }
   closeLicense();
   openCart();
-  showNotice(`${activeBeat.title} (${selectedTier.name}) added.`);
-};
+  showCartNotice(`${activeProduct.title} (${selectedTier.name}) added.`);
+}
 
-window.addPack = id => {
-  const product = items.find(x => String(x.id) === String(id));
+function addPack(id) {
+  const product = products.find(p => p.id === id);
   if (!product) return;
   const key = `${product.id}:digital`;
   if (!cart.some(c => c.key === key)) {
@@ -949,30 +730,34 @@ window.addPack = id => {
       key,
       product_id: product.id,
       license_id: null,
-      product_type: "digital_product",
       title: product.title,
       sub: product.category,
-      price: product.price_ngn,
-      currency: product.currency || "NGN"
+      price_ngn: product.price_ngn
     });
-    saveCartStorage();
+    saveCart();
   }
   openCart();
-  showNotice(`${product.title} added to cart.`);
-};
+  showCartNotice(`${product.title} added to cart.`);
+}
 
-/* CART & PAYSTACK CHECKOUT */
-window.openCart = () => { drawCart(); $("cartDrawer").classList.add("open"); };
-window.closeCart = () => $("cartDrawer").classList.remove("open");
-window.rmCart = idx => { cart.splice(idx, 1); saveCartStorage(); drawCart(); };
+/* ---------- Cart & checkout ---------- */
+function openCart() { drawCart(); $("cartDrawer").classList.add("open"); }
+function closeCart() { $("cartDrawer").classList.remove("open"); }
 
-function showNotice(msg){
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+  drawCart();
+}
+
+function showCartNotice(message, isError = false) {
   const el = $("cartNotice");
-  el.textContent = msg;
+  el.textContent = message;
+  el.classList.toggle("error", isError);
   el.classList.add("show");
 }
 
-function drawCart(){
+function drawCart() {
   $("cartBadge").textContent = String(cart.length);
   if (!cart.length) {
     $("cartItems").innerHTML = `<p class="sec-sub" style="padding:20px 0">Your cart is empty.</p>`;
@@ -981,39 +766,35 @@ function drawCart(){
     return;
   }
   $("checkoutBtn").disabled = false;
-  $("cartItems").innerHTML = cart.map((item, idx) => `
+  $("cartItems").innerHTML = cart.map((item, i) => `
     <div class="cart-item">
       <div>
         <strong>${esc(item.title)}</strong>
-        <div style="font-size:11px;color:var(--muted)">${esc(item.sub)} · ${fmtNgn(item.price)}</div>
+        <div class="muted" style="font-size:11px">${esc(item.sub)} · ${fmtNgn(item.price_ngn)}</div>
       </div>
-      <button type="button" onclick="rmCart(${idx})" style="background:none;color:var(--accent-bright);font-size:12px;font-weight:600">Remove</button>
-    </div>
-  `).join("");
-  const total = cart.reduce((s, i) => s + (Number(i.price) || 0), 0);
+      <button type="button" data-remove="${i}" style="background:none;color:var(--accent-bright);font-size:12px;font-weight:600">Remove</button>
+    </div>`).join("");
+  const total = cart.reduce((sum, i) => sum + (Number(i.price_ngn) || 0), 0);
   $("cartTotal").textContent = `Total: ${fmtNgn(total)}`;
 }
 
-window.continueToCheckout = async () => {
-  if (!cart.length) return showNotice("Your cart is empty.");
+async function checkout() {
+  if (!cart.length) return showCartNotice("Your cart is empty.", true);
   if (!currentUser) {
     closeCart();
-    openAuth();
+    openAuth("signin");
     authMessage("Sign in or create an account before checkout.");
     return;
   }
 
   const btn = $("checkoutBtn");
   btn.disabled = true;
-  btn.textContent = "Initializing Paystack...";
+  btn.textContent = "Starting payment...";
 
   try {
     const { data: sess } = await supabase.auth.getSession();
     const token = sess?.session?.access_token;
-    const payload = {
-      items: cart.map(c => ({ product_id: c.product_id, license_id: c.license_id })),
-      callback_url: window.location.origin + window.location.pathname
-    };
+    if (!token) throw new Error("Your session has expired. Please sign in again.");
 
     const res = await fetch(`${SUPABASE_URL}/functions/v1/paystack-initialize`, {
       method: "POST",
@@ -1022,30 +803,36 @@ window.continueToCheckout = async () => {
         "apikey": SUPABASE_ANON_KEY,
         "Authorization": `Bearer ${token}`
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({
+        items: cart.map(c => ({ product_id: c.product_id, license_id: c.license_id }))
+      })
     });
 
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.authorization_url) {
-      throw new Error(data.error || "Could not initialize Paystack checkout. Ensure Edge Functions are deployed.");
+      throw new Error(data.error || "Checkout could not be started. Please try again.");
     }
-
     window.location.href = data.authorization_url;
   } catch (err) {
-    showNotice(err.message);
+    showCartNotice(err.message, true);
     btn.disabled = false;
     btn.textContent = "Pay with Paystack (NGN)";
   }
-};
+}
 
-async function handlePaystackReturn(){
+/* Returning from Paystack: the server verifies with Paystack. The URL alone never marks an order paid. */
+async function handlePaystackReturn() {
   const params = new URLSearchParams(window.location.search);
   const reference = params.get("reference") || params.get("trxref");
   if (!reference) return;
 
   const { data: sess } = await supabase.auth.getSession();
   const token = sess?.session?.access_token;
-  if (!token) return;
+  if (!token) {
+    authMessage("Sign in to view your payment and downloads.");
+    openAuth("signin");
+    return;
+  }
 
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/paystack-verify`, {
@@ -1058,26 +845,40 @@ async function handlePaystackReturn(){
       body: JSON.stringify({ reference })
     });
     const out = await res.json().catch(() => ({}));
+    window.history.replaceState({}, "", window.location.pathname);
+
     if (res.ok && out.verified) {
       cart = [];
-      saveCartStorage();
+      saveCart();
       drawCart();
-      window.history.replaceState({}, "", window.location.pathname);
-      openAuth();
+      openAuth("account");
       switchAccountTab("orders");
-      authMessage("Payment verified! Your digital downloads are now available in Your Account.");
-      await loadMyOrders();
+      authMessage("Payment verified. Your downloads are ready in Your Account.");
+    } else {
+      openAuth("account");
+      switchAccountTab("orders");
+      authMessage(out.error || "Your payment is still being confirmed. Refresh this page shortly.");
     }
-  } catch (err) {
-    console.warn("Paystack return verification:", err.message);
+    await loadMyOrders();
+  } catch {
+    authMessage("We could not confirm your payment yet. Refresh this page shortly.");
+    openAuth("account");
   }
 }
 
-/* AUTH, ENTITLEMENTS & VENDOR PORTAL */
-function authMessage(msg){ const b = $("authFeedback"); b.textContent = msg; b.classList.add("show"); }
-function clearAuthMessage(){ const b = $("authFeedback"); b.textContent = ""; b.classList.remove("show"); }
+/* ---------- Auth ---------- */
+function authMessage(msg, isError = false) {
+  const b = $("authFeedback");
+  b.textContent = msg;
+  b.classList.toggle("error", isError);
+  b.classList.add("show");
+}
+function clearAuthMessage() {
+  $("authFeedback").textContent = "";
+  $("authFeedback").classList.remove("show", "error");
+}
 
-window.setAuthMode = mode => {
+function setAuthMode(mode) {
   authMode = mode;
   clearAuthMessage();
   const signup = mode === "signup", reset = mode === "reset", recovery = mode === "recovery";
@@ -1086,48 +887,39 @@ window.setAuthMode = mode => {
   $("authPasswordField").hidden = reset;
   $("authPassword").required = !reset;
   $("authConfirm").required = signup || recovery;
-  $("authDisplayName").required = signup;
 
-  if (mode === "signup") {
-    $("authHeading").textContent = "Create your account";
-    $("authDescription").textContent = "Join 485 MUSIC to buy beats, kits, or apply as a vendor.";
-    $("authSubmit").textContent = "Create Account";
-  } else if (reset) {
-    $("authHeading").textContent = "Reset password";
-    $("authDescription").textContent = "Enter your email to receive a reset link.";
-    $("authSubmit").textContent = "Send Reset Link";
-  } else if (recovery) {
-    $("authHeading").textContent = "Choose a new password";
-    $("authDescription").textContent = "Enter and confirm your new password.";
-    $("authSubmit").textContent = "Update Password";
-  } else {
-    $("authHeading").textContent = "Welcome back";
-    $("authDescription").textContent = "Sign in to your 485 MUSIC account.";
-    $("authSubmit").textContent = "Sign In";
-  }
+  const copy = {
+    signup: ["Create your account", "Join 485 MUSIC to buy beats and kits, or apply as a vendor.", "Create Account"],
+    reset: ["Reset password", "Enter your email to receive a reset link.", "Send Reset Link"],
+    recovery: ["Choose a new password", "Enter and confirm your new password.", "Update Password"],
+    signin: ["Welcome back", "Sign in to your 485 MUSIC account.", "Sign In"]
+  }[mode];
+  $("authHeading").textContent = copy[0];
+  $("authDescription").textContent = copy[1];
+  $("authSubmit").textContent = copy[2];
   $("authFormPanel").hidden = false;
   $("accountPanel").hidden = true;
-};
+}
 
-window.openAuth = () => {
+function openAuth(panel = "signin") {
   clearAuthMessage();
-  if (currentUser) showAccountPanel();
-  else window.setAuthMode("signin");
+  if (panel === "account" && currentUser) showAccountPanel();
+  else if (currentUser && panel !== "signin") showAccountPanel();
+  else setAuthMode("signin");
   $("authModal").classList.add("open");
-};
+}
+function closeAuth() { $("authModal").classList.remove("open"); }
 
-window.closeAuth = () => $("authModal").classList.remove("open");
+function switchAccountTab(tab) {
+  const orders = tab === "orders";
+  $("acctTabOrders").classList.toggle("active", orders);
+  $("acctTabVendor").classList.toggle("active", !orders);
+  $("acctOrdersSection").hidden = !orders;
+  $("acctVendorSection").hidden = orders;
+  if (!orders) loadVendorAccountState();
+}
 
-window.switchAccountTab = tab => {
-  const isOrders = tab === "orders";
-  $("acctTabOrders").classList.toggle("active", isOrders);
-  $("acctTabVendor").classList.toggle("active", !isOrders);
-  $("acctOrdersSection").hidden = !isOrders;
-  $("acctVendorSection").hidden = isOrders;
-  if (!isOrders) loadVendorAccountState();
-};
-
-function showAccountPanel(){
+function showAccountPanel() {
   if (!currentUser) return;
   $("authFormPanel").hidden = true;
   $("accountPanel").hidden = false;
@@ -1136,7 +928,11 @@ function showAccountPanel(){
   loadMyOrders();
 }
 
-async function initializeAuth(){
+function updateAuthButton() {
+  $("authButton").textContent = currentUser ? "My Account" : "Sign In";
+}
+
+async function initialiseAuth() {
   const { data } = await supabase.auth.getSession();
   currentUser = data?.session?.user || null;
   updateAuthButton();
@@ -1146,16 +942,12 @@ async function initializeAuth(){
     currentUser = session?.user || null;
     updateAuthButton();
     if (event === "PASSWORD_RECOVERY") {
-      $("authModal").classList.add("open");
-      window.setAuthMode("recovery");
+      openAuth("signin");
+      setAuthMode("recovery");
     } else if (currentUser && $("authModal").classList.contains("open")) {
       showAccountPanel();
     }
   });
-}
-
-function updateAuthButton(){
-  $("authButton").textContent = currentUser ? "My Account" : "Sign In";
 }
 
 $("authForm").addEventListener("submit", async e => {
@@ -1172,22 +964,32 @@ $("authForm").addEventListener("submit", async e => {
       if (password.length < 8) throw new Error("Use at least 8 characters.");
       if (password !== confirm) throw new Error("Passwords do not match.");
       const { data, error } = await supabase.auth.signUp({
-        email, password,
-        options: { data: { display_name: displayName }, emailRedirectTo: window.location.origin + window.location.pathname }
+        email,
+        password,
+        options: {
+          data: { display_name: displayName },
+          emailRedirectTo: RETURN_URL
+        }
       });
       if (error) throw error;
-      if (data.session) { currentUser = data.user; updateAuthButton(); showAccountPanel(); }
-      else authMessage("Account created. Check your email to confirm before signing in.");
+      if (data.session) {
+        currentUser = data.user;
+        updateAuthButton();
+        showAccountPanel();
+      } else {
+        authMessage("Account created. Check your email to confirm before signing in.");
+      }
     } else if (authMode === "reset") {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + window.location.pathname });
+      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: RETURN_URL });
       if (error) throw error;
-      authMessage("If an account exists for this email, a password reset link has been sent.");
+      authMessage("If an account exists for this email, a reset link has been sent.");
     } else if (authMode === "recovery") {
       if (password.length < 8) throw new Error("Use at least 8 characters.");
       if (password !== confirm) throw new Error("Passwords do not match.");
       const { error } = await supabase.auth.updateUser({ password });
       if (error) throw error;
-      authMessage("Password updated.");
+      authMessage("Password updated. You are now signed in.");
+      setAuthMode("signin");
     } else {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
@@ -1196,44 +998,54 @@ $("authForm").addEventListener("submit", async e => {
       showAccountPanel();
     }
   } catch (err) {
-    authMessage(err.message || "Authentication failed.");
+    authMessage(err.message || "Authentication failed.", true);
   } finally {
     $("authSubmit").disabled = false;
   }
 });
 
-window.signOutUser = async () => {
+async function signOutUser() {
   await supabase.auth.signOut();
   currentUser = null;
   updateAuthButton();
-  window.setAuthMode("signin");
+  setAuthMode("signin");
   authMessage("Signed out.");
-};
+}
 
-window.loadMyOrders = async () => {
+/* ---------- Downloads & purchase history ---------- */
+async function loadMyOrders() {
   if (!currentUser) return;
 
-  const { data: ents } = await supabase
+  const { data: ents, error: entErr } = await supabase
     .from("download_entitlements")
-    .select("id,file_label,download_count,max_downloads,expires_at,products(title)")
+    .select("id,file_label,download_count,max_downloads,revoked_at,products(title)")
     .eq("user_id", currentUser.id)
-    .order("created_at", { ascending: false });
+    .order("granted_at", { ascending: false });
 
-  $("myEntitlements").innerHTML = (ents && ents.length)
-    ? ents.map(en => `
-        <div class="order-card" style="display:flex;justify-content:space-between;align-items:center;gap:10px">
-          <div>
-            <strong>${esc(en.products?.title || "Digital Item")}</strong>
-            <div class="muted">${esc(en.file_label)} · ${en.download_count}/${en.max_downloads} downloads</div>
-          </div>
-          <button class="btn sm" type="button" onclick="downloadEntitlement('${esc(en.id)}', this)">Download</button>
-        </div>
-      `).join("")
-    : `<p class="muted">No purchased downloads yet.</p>`;
+  if (entErr) {
+    $("myEntitlements").textContent = "Downloads are temporarily unavailable.";
+  } else {
+    $("myEntitlements").innerHTML = (ents && ents.length)
+      ? ents.map(en => {
+          const left = en.max_downloads - en.download_count;
+          const disabled = en.revoked_at || left <= 0;
+          return `
+            <div class="order-card" style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+              <div>
+                <strong>${esc(en.products?.title || "Digital item")}</strong>
+                <div class="muted">${esc(en.file_label || "Download")} · ${left} of ${en.max_downloads} downloads left</div>
+              </div>
+              <button class="btn sm" type="button" data-download="${esc(en.id)}" ${disabled ? "disabled" : ""}>
+                ${en.revoked_at ? "Revoked" : (left <= 0 ? "Limit reached" : "Download")}
+              </button>
+            </div>`;
+        }).join("")
+      : `<p class="muted">No purchased downloads yet.</p>`;
+  }
 
   const { data, error } = await supabase
     .from("orders")
-    .select("id,status,total_kobo,currency,created_at,order_items(product_title,license_type,price_kobo)")
+    .select("id,status,total_kobo,created_at,order_items(product_title,license_type)")
     .eq("user_id", currentUser.id)
     .order("created_at", { ascending: false })
     .limit(20);
@@ -1248,21 +1060,21 @@ window.loadMyOrders = async () => {
   }
 
   $("purchaseHistory").innerHTML = data.map(o => {
-    const prods = (o.order_items || []).map(i => `${esc(i.product_title)}${i.license_type ? ` (${esc(licenceNames[i.license_type] || i.license_type)})` : ""}`).join(", ");
+    const items = (o.order_items || []).map(i =>
+      `${esc(i.product_title)}${i.license_type ? ` (${esc(LICENCE_NAMES[i.license_type] || i.license_type)})` : ""}`).join(", ");
     return `
       <div class="order-card">
-        <strong>${esc(String(o.status || "").toUpperCase())}</strong>
-        <div>${prods || "Order"}</div>
+        <strong>${esc(String(o.status || "").replace(/_/g, " ").toUpperCase())}</strong>
+        <div>${items || "Order"}</div>
         <div class="muted">${fmtNgn(Number(o.total_kobo || 0) / 100)} · ${new Date(o.created_at).toLocaleDateString()}</div>
-      </div>
-    `;
+      </div>`;
   }).join("");
-};
+}
 
-window.downloadEntitlement = async (entitlementId, btn) => {
-  const old = btn.textContent;
+async function downloadEntitlement(id, btn) {
+  const original = btn.textContent;
   btn.disabled = true;
-  btn.textContent = "Signing...";
+  btn.textContent = "Preparing...";
   try {
     const { data: sess } = await supabase.auth.getSession();
     const res = await fetch(`${SUPABASE_URL}/functions/v1/create-download-url`, {
@@ -1270,53 +1082,60 @@ window.downloadEntitlement = async (entitlementId, btn) => {
       headers: {
         "Content-Type": "application/json",
         "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${sess?.session?.access_token}`
+        "Authorization": `Bearer ${sess?.session?.access_token || ""}`
       },
-      body: JSON.stringify({ entitlement_id: entitlementId })
+      body: JSON.stringify({ entitlement_id: id })
     });
-    const out = await res.json();
-    if (!res.ok || !out.signed_url) throw new Error(out.error || "Download unavailable");
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok || !out.signed_url) throw new Error(out.error || "Download unavailable.");
     window.open(out.signed_url, "_blank", "noopener,noreferrer");
     await loadMyOrders();
   } catch (err) {
-    alert(err.message);
-  } finally {
+    authMessage(err.message, true);
     btn.disabled = false;
-    btn.textContent = old;
+    btn.textContent = original;
   }
-};
+}
 
-async function loadVendorAccountState(){
+/* ---------- Vendor portal (customer side) ---------- */
+async function loadVendorAccountState() {
   if (!currentUser) return;
-  const { data: vp } = await supabase.from("vendor_profiles").select("*").eq("user_id", currentUser.id).maybeSingle();
-  const { data: apps } = await supabase.from("vendor_applications").select("*").eq("user_id", currentUser.id).order("created_at", { ascending: false }).limit(1);
-  const latestApp = apps?.[0] || null;
+  const { data: vp } = await supabase.from("vendor_profiles").select("id,stage_name,is_active").eq("user_id", currentUser.id).maybeSingle();
+  const { data: apps } = await supabase.from("vendor_applications").select("status,stage_name,review_notes,created_at").eq("user_id", currentUser.id).order("created_at", { ascending: false }).limit(1);
+  const latest = apps?.[0] || null;
 
-  if (vp) {
-    const { data: bal } = await supabase.from("vendor_balances").select("*").eq("vendor_id", vp.id).maybeSingle();
-    $("vendorStatusPill").textContent = `Vendor Status: ${vp.is_active ? "Approved Producer" : "Inactive"} (${esc(vp.stage_name)})`;
+  if (vp && vp.is_active) {
+    const { data: bal } = await supabase.from("vendor_balances").select("available_kobo,pending_kobo,total_earned_kobo,total_paid_kobo").eq("vendor_id", vp.id).maybeSingle();
+    const { data: payouts } = await supabase.from("payout_requests").select("id,amount_kobo,status,created_at").eq("vendor_id", vp.id).order("created_at", { ascending: false }).limit(10);
+    $("vendorStatusPill").textContent = `Vendor: ${vp.stage_name || "Approved producer"}`;
+    const available = Number(bal?.available_kobo || 0);
     $("vendorDashboardBox").innerHTML = `
-      <strong>Producer Profile: ${esc(vp.stage_name)}</strong>
+      <strong>${esc(vp.stage_name || "Producer profile")}</strong>
       <div class="muted" style="margin-top:6px">
-        Available Balance: <strong>${fmtNgn(Number(bal?.available_kobo || 0) / 100)}</strong><br>
-        Total Earned: ${fmtNgn(Number(bal?.total_earned_kobo || 0) / 100)} · Paid Out: ${fmtNgn(Number(bal?.total_paid_kobo || 0) / 100)}
+        Available: <strong>${fmtNgn(available / 100)}</strong><br>
+        Pending (7-day hold): ${fmtNgn(Number(bal?.pending_kobo || 0) / 100)}<br>
+        Total earned: ${fmtNgn(Number(bal?.total_earned_kobo || 0) / 100)} · Paid out: ${fmtNgn(Number(bal?.total_paid_kobo || 0) / 100)}
       </div>
       <div style="margin-top:10px">
-        <button class="btn sm" type="button" onclick="requestVendorPayout('${esc(vp.id)}', ${Number(bal?.available_kobo || 0)})">Request Withdrawal</button>
+        <button class="btn sm" type="button" id="requestPayoutBtn" ${available <= 0 ? "disabled" : ""}>Request Withdrawal</button>
       </div>
-    `;
+      <div style="margin-top:12px">
+        ${(payouts || []).length
+          ? payouts.map(p => `<div class="order-card">${fmtNgn(Number(p.amount_kobo) / 100)} · ${esc(p.status)} · ${new Date(p.created_at).toLocaleDateString()}</div>`).join("")
+          : `<span class="muted">No withdrawal requests yet.</span>`}
+      </div>`;
     $("vendorApplyForm").hidden = true;
     return;
   }
 
-  $("vendorStatusPill").textContent = latestApp ? `Vendor Application: ${latestApp.status.toUpperCase()}` : "Customer Account";
-  if (latestApp?.status === "pending") {
-    $("vendorDashboardBox").innerHTML = `<strong>Application Pending Review</strong><p class="muted">Stage Name: ${esc(latestApp.stage_name)}. An administrator will review your application.</p>`;
+  $("vendorStatusPill").textContent = latest ? `Vendor application: ${latest.status}` : "Customer account";
+  if (latest?.status === "pending") {
+    $("vendorDashboardBox").innerHTML = `<strong>Application under review</strong><p class="muted">Stage name: ${esc(latest.stage_name)}. An administrator will review it.</p>`;
     $("vendorApplyForm").hidden = true;
   } else {
-    $("vendorDashboardBox").innerHTML = latestApp?.status === "rejected"
-      ? `<strong style="color:var(--warn)">Previous Application Rejected</strong><p class="muted">${esc(latestApp.review_notes || "You may submit a revised application below.")}</p>`
-      : `<strong>Sell Your Beats &amp; Sample Packs</strong><p class="muted">Apply below. Once approved, administrators review and publish your products.</p>`;
+    $("vendorDashboardBox").innerHTML = latest?.status === "rejected"
+      ? `<strong style="color:var(--warn)">Previous application not approved</strong><p class="muted">${esc(latest.review_notes || "You may apply again below.")}</p>`
+      : `<strong>Sell your beats and sample packs</strong><p class="muted">Apply below. Once approved, your products are reviewed before they go live.</p>`;
     $("vendorApplyForm").hidden = false;
   }
 }
@@ -1324,6 +1143,7 @@ async function loadVendorAccountState(){
 $("vendorApplyForm").addEventListener("submit", async e => {
   e.preventDefault();
   if (!currentUser) return;
+  $("vendorApplyBtn").disabled = true;
   const { error } = await supabase.from("vendor_applications").insert({
     user_id: currentUser.id,
     stage_name: $("vendorStageName").value.trim(),
@@ -1334,60 +1154,70 @@ $("vendorApplyForm").addEventListener("submit", async e => {
     payout_account_name: $("vendorAccountName").value.trim() || null,
     status: "pending"
   });
+  $("vendorApplyBtn").disabled = false;
   const n = $("vendorNotice");
-  if (error) { n.textContent = error.message; n.classList.add("show"); return; }
-  n.textContent = "Vendor application submitted for administrator review.";
+  if (error) {
+    n.textContent = error.message;
+    n.classList.add("show");
+    return;
+  }
+  n.textContent = "Application submitted for administrator review.";
   n.classList.add("show");
   $("vendorApplyForm").reset();
   await loadVendorAccountState();
 });
 
-window.requestVendorPayout = async (vendorId, availableKobo) => {
+async function requestPayout(vendorIdKnown) {
+  const { data: vp } = await supabase.from("vendor_profiles").select("id").eq("user_id", currentUser.id).maybeSingle();
+  if (!vp || vp.id !== vendorIdKnown) return;
+  const { data: bal } = await supabase.from("vendor_balances").select("available_kobo").eq("vendor_id", vp.id).maybeSingle();
+  const availableKobo = Number(bal?.available_kobo || 0);
   if (availableKobo <= 0) return alert("Your available balance is ₦0.");
-  const input = prompt(`Available balance: ${fmtNgn(availableKobo / 100)}. Enter withdrawal amount in NGN:`);
-  const amountNgn = Number(input);
-  if (!Number.isFinite(amountNgn) || amountNgn <= 0) return;
-  const amountKobo = Math.round(amountNgn * 100);
-  if (amountKobo > availableKobo) return alert("Amount exceeds available balance.");
+
+  const input = prompt(`Available: ${fmtNgn(availableKobo / 100)}. Enter the amount to withdraw in NGN:`);
+  const naira = Number(input);
+  if (!Number.isFinite(naira) || naira <= 0) return;
+  const amountKobo = Math.round(naira * 100);
+  if (amountKobo > availableKobo) return alert("That amount is more than your available balance.");
 
   const { error } = await supabase.from("payout_requests").insert({
-    vendor_id: vendorId,
+    vendor_id: vp.id,
     amount_kobo: amountKobo,
     currency: "NGN",
     status: "pending"
   });
-  if (error) return alert(error.message);
-  alert("Withdrawal request submitted. Administrator payouts are processed manually after review.");
+  if (error) {
+    return alert("Withdrawal could not be requested: " + error.message);
+  }
+  alert("Withdrawal requested. Payouts are processed manually after review.");
   await loadVendorAccountState();
-};
+}
 
-/* AUDIO PLAYER */
-function syncPlayer(){
+/* ---------- Audio player ---------- */
+function syncPlayer() {
   const live = !audio.paused && Boolean(playingId);
   $("pPlay").textContent = live ? "Ⅱ" : "▶";
   document.querySelectorAll("[data-row]").forEach(el => {
     const match = el.dataset.row === playingId && live;
     el.classList.toggle("playing", match);
-    const btn = el.querySelector(".thumb-play,.pack-play");
+    const btn = el.querySelector("[data-play]");
     if (btn) {
-      if (btn.classList.contains("thumb-play")) {
-        const icon = btn.querySelector("span");
-        if (icon) icon.textContent = match ? "Ⅱ" : "▶";
-      } else btn.textContent = match ? "Ⅱ" : "▶";
+      const icon = btn.tagName === "BUTTON" && btn.querySelector("span") ? btn.querySelector("span") : btn;
+      icon.textContent = match ? "Ⅱ" : "▶";
     }
   });
 }
 
-window.togglePlay = async id => {
-  const product = items.find(x => String(x.id) === String(id));
+async function togglePlay(id) {
+  const product = products.find(p => p.id === id);
   if (!product?.preview_url) return;
   try {
-    if (playingId === String(id)) {
+    if (playingId === id) {
       if (audio.paused) await audio.play(); else audio.pause();
       syncPlayer();
       return;
     }
-    playingId = String(id);
+    playingId = id;
     $("pTitle").textContent = product.title;
     $("pSub").textContent = [product.bpm ? `${product.bpm} BPM` : null, product.category].filter(Boolean).join(" · ");
     $("pArt").innerHTML = product.cover_url ? `<img src="${esc(product.cover_url)}" alt="">` : "485";
@@ -1396,28 +1226,16 @@ window.togglePlay = async id => {
     audio.src = product.preview_url;
     await audio.play();
     syncPlayer();
-  } catch (err) { console.error("Playback error:", err); }
-};
-
-$("pPlay").addEventListener("click", async () => {
-  if (!playingId) return;
-  if (audio.paused) await audio.play(); else audio.pause();
-  syncPlayer();
-});
-
-$("pSeek").addEventListener("input", () => {
-  if (Number.isFinite(audio.duration) && audio.duration > 0) {
-    audio.currentTime = (Number($("pSeek").value) / 1000) * audio.duration;
+  } catch (err) {
+    console.error("Playback error:", err);
   }
-});
+}
 
-$("pVol").addEventListener("input", () => { audio.volume = Number($("pVol").value); });
-
-const fmtT = s => (!Number.isFinite(s) || s < 0) ? "0:00" : `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+const fmtTime = s => (!Number.isFinite(s) || s < 0) ? "0:00" : `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
 audio.addEventListener("timeupdate", () => {
-  $("pCur").textContent = fmtT(audio.currentTime);
-  $("pDur").textContent = fmtT(audio.duration);
+  $("pCur").textContent = fmtTime(audio.currentTime);
+  $("pDur").textContent = fmtTime(audio.duration);
   if (Number.isFinite(audio.duration) && audio.duration > 0) {
     $("pSeek").value = String(Math.round((audio.currentTime / audio.duration) * 1000));
   }
@@ -1426,31 +1244,53 @@ audio.addEventListener("play", syncPlayer);
 audio.addEventListener("pause", syncPlayer);
 audio.addEventListener("ended", syncPlayer);
 
-/* LOAD STORE */
-async function loadStore(){
+/* ---------- Catalogue ---------- */
+async function loadStore() {
   $("statusText").textContent = "Loading catalogue...";
   const { data, error } = await supabase
     .from("products")
-    .select("id,title,description,product_type,is_platform_owned,bpm,musical_key,genre,mood,price_kobo,currency,cover_image_path,preview_audio_path,status,created_at,product_categories(name),vendor_profiles(stage_name)")
+    .select(`
+      id,title,description,product_type,bpm,musical_key,genre,mood,price_kobo,
+      cover_image_path,preview_audio_path,created_at,
+      product_categories(name),
+      vendor_profiles(stage_name),
+      beat_details(bpm,musical_key,genre,mood)
+    `)
     .eq("status", "approved")
     .order("created_at", { ascending: false });
 
   if (error) {
-    $("statusText").textContent = "Could not load products from Supabase.";
-    $("homeBeatsList").innerHTML = `<p class="sec-sub">Catalogue could not be loaded. Please try again later.</p>`;
+    $("statusText").textContent = "Catalogue unavailable";
+    const msg = `Could not load products: ${error.message}`;
+    $("homeBeatsList").innerHTML = `<p class="empty">${esc(msg)}</p>`;
+    $("homePacksGrid").innerHTML = "";
     return;
   }
 
-  items = await Promise.all((data || []).map(async row => {
+  const rows = data || [];
+  products = await Promise.all(rows.map(async row => {
+    const detail = Array.isArray(row.beat_details) ? row.beat_details[0] : row.beat_details;
+    const bpm = detail?.bpm ?? row.bpm ?? null;
+    const musicalKey = detail?.musical_key ?? row.musical_key ?? null;
+    const genre = detail?.genre ?? row.genre ?? null;
+    const mood = detail?.mood ?? row.mood ?? null;
     const [coverUrl, previewUrl] = await Promise.all([
       signedPreviewUrl(row.cover_image_path),
       signedPreviewUrl(row.preview_audio_path)
     ]);
     return {
-      ...row,
-      producer_name: row.vendor_profiles?.stage_name || (row.is_platform_owned === false ? "485 Vendor" : "LordMarshal"),
+      id: row.id,
+      title: row.title,
+      description: row.description,
+      product_type: row.product_type,
+      bpm,
+      musical_key: musicalKey,
+      genre,
+      mood,
       category: row.product_categories?.name || (row.product_type === "beat" ? "Beats" : "Sample Packs"),
+      producer_name: row.vendor_profiles?.stage_name || "485 MUSIC",
       price_ngn: Number(row.price_kobo || 0) / 100,
+      from_ngn: Number(row.price_kobo || 0) / 100,
       cover_url: coverUrl,
       preview_url: previewUrl
     };
@@ -1459,9 +1299,66 @@ async function loadStore(){
   renderAll();
 }
 
-loadCartStorage();
+/* ---------- Event wiring (no inline handlers) ---------- */
+document.querySelectorAll("[data-go]").forEach(el => el.addEventListener("click", () => go(el.dataset.go)));
+document.querySelectorAll("[data-vibe]").forEach(el => el.addEventListener("click", () => {
+  go(el.dataset.vibe);
+  if (el.dataset.genre) setGenre(el.dataset.genre);
+}));
+document.querySelectorAll("#genreChips .chip").forEach(el => el.addEventListener("click", () => setGenre(el.dataset.g)));
+$("beatSearch").addEventListener("input", renderBeats);
+$("bpmSelect").addEventListener("change", renderBeats);
+$("keySelect").addEventListener("change", renderBeats);
+$("packSearch").addEventListener("input", renderPacks);
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  if (t.dataset.license) return openLicense(t.dataset.license);
+  if (t.dataset.addPack) return addPack(t.dataset.addPack);
+  if (t.dataset.play) return togglePlay(t.dataset.play);
+  if (t.dataset.tier !== undefined) return selectTier(Number(t.dataset.tier));
+  if (t.dataset.remove !== undefined) return removeFromCart(Number(t.dataset.remove));
+  if (t.dataset.download) return downloadEntitlement(t.dataset.download, t);
+  if (t.dataset.authMode) return setAuthMode(t.dataset.authMode);
+});
+
+$("authButton").addEventListener("click", () => openAuth(currentUser ? "account" : "signin"));
+$("cartButton").addEventListener("click", openCart);
+$("cartClose").addEventListener("click", closeCart);
+$("cartDrawer").addEventListener("click", e => { if (e.target.id === "cartDrawer") closeCart(); });
+$("licClose").addEventListener("click", closeLicense);
+$("licenseModal").addEventListener("click", e => { if (e.target.id === "licenseModal") closeLicense(); });
+$("licConfirmBtn").addEventListener("click", addSelectedLicence);
+$("authClose").addEventListener("click", closeAuth);
+$("authModal").addEventListener("click", e => { if (e.target.id === "authModal") closeAuth(); });
+$("acctTabOrders").addEventListener("click", () => switchAccountTab("orders"));
+$("acctTabVendor").addEventListener("click", () => switchAccountTab("vendor"));
+$("signOutBtn").addEventListener("click", signOutUser);
+$("refreshOrdersBtn").addEventListener("click", loadMyOrders);
+$("checkoutBtn").addEventListener("click", checkout);
+$("pPlay").addEventListener("click", async () => {
+  if (!playingId) return;
+  if (audio.paused) await audio.play(); else audio.pause();
+  syncPlayer();
+});
+$("pSeek").addEventListener("input", () => {
+  if (Number.isFinite(audio.duration) && audio.duration > 0) {
+    audio.currentTime = (Number($("pSeek").value) / 1000) * audio.duration;
+  }
+});
+$("pVol").addEventListener("input", () => { audio.volume = Number($("pVol").value); });
+
+document.addEventListener("click", e => {
+  if (e.target?.id === "requestPayoutBtn") {
+    supabase.from("vendor_profiles").select("id").eq("user_id", currentUser.id).maybeSingle()
+      .then(({ data }) => { if (data) requestPayout(data.id); });
+  }
+});
+
+loadCart();
 drawCart();
-initializeAuth();
+initialiseAuth();
 loadStore();
 </script>
 </body>
